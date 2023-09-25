@@ -14,7 +14,7 @@ This Master's seminar project provides a comprehensive analysis of the realized 
 
 ## Analysis Overview
 
-The analysis includes regression results and discussions on the effectiveness of the HAR-RV model in capturing volatility in Bitcoin price time series. The conclusion highlights the need for further research to incorporate additional estimation methods and improve forecasting accuracy. This repository serves as a valuable resource for researchers and analysts interested in understanding and modeling volatility in cryptocurrency markets.
+The analysis includes regression results and discussions on the effectiveness of the HAR-RV model in capturing volatility in Bitcoin return time series. The conclusion highlights the need for further research to incorporate additional estimation methods and improve forecasting accuracy. This repository serves as a valuable resource for researchers and analysts interested in understanding and modeling volatility in cryptocurrency markets.
 
 
 
