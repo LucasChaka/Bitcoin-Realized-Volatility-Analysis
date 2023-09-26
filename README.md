@@ -41,7 +41,7 @@ Volatility refers to the degree of variation in the returns of a financial instr
 
 [Andersen (2008)][3] defined realized volatility as a fully non-parametric approach for the ex-post measurement of the true realized return variation over a specific trading period. The objective is to estimate realized volatility in a simple and non-parametric manner. This enables us to demonstrate how volatility is estimated as a discrete-time or continuous-time process.
 
-Realized volatility quantifies notional volatility over fixed-length time intervals, h > 0
+Realized volatility quantifies notional volatility over fixed-length time intervals, h > 0  
 
 ### Discrete-time Process
 
