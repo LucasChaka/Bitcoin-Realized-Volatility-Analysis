@@ -35,11 +35,13 @@ For the purpose of data visualization, some data was initially obtained from Yah
 
 ### The equivalent Python code
 
-## Measuring Volatility
+## Measuring and Defining Volatility
 
-In the previous section, some of the stylized facts of financial asset returns have been established. Based on the stylized facts, volatility estimators such as the Historical Volatility, Implied Volatility Models, exponentially weighted moving average models, Auto-regressive Volatility models, and ARCH family models have been extensively theorized by [Brooks (2014)] in great detail. However, the scope of this paper focuses on Volatility estimation via the so-called realized Volatility, which according to [Andersen (2008)] is an extension of the historical volatility estimator.
+Volatility refers to the degree of variation in the returns of a financial instrument over a certain period of time. It is a statistical measure of the dispersion of returns and is often used as a measure of risk ([Anderson et.al (2010)][2]). To measure volatility, there are two main categories of approaches: the the parametric and non-parametric models for volatility estimation. The parametric models include ARCH (Auto-Regressive Conditional Heteroskedasticity) Models, stochastic volatility models and continuous-time volatility models. On the other hand, the non-parametric volatility measurements focus on quantifying volatility without relying on specific functional form assumptions. Such measurements include modeling Instantaneous Volatility and Realized Volatility Measures.
 
-[Andersen (2008)] defined realized volatility as a fully non-parametric approach to the ex-post measurement of the true realized return variation over a specific trading period. The objective is to estimate realized volatility in a simple and non-parametric way. It is then possible to showcase how volatility is estimated as a discrete-time or continuous-time process.
+[Andersen (2008)][3] defined realized volatility as a fully non-parametric approach for the ex-post measurement of the true realized return variation over a specific trading period. The objective is to estimate realized volatility in a simple and non-parametric manner. This enables us to demonstrate how volatility is estimated as a discrete-time or continuous-time process.
+
+Realized volatility quantifies notional volatility over fixed-length time intervals, h > 0
 
 ### Discrete-time Process
 
@@ -120,6 +122,17 @@ If the data is contaminated by Micro-Noise Structure, then RV is not a consisten
 ### The Theory of Sampling Irregularly Spaced Financial Data
 
 In financial markets, prices are observed at discrete and irregularly spaced time intervals. To estimate volatility in a financial time-series, it is recommended to use equidistant sampling schemes where the intervals between the ticks are evenly spaced. This helps minimize bias and variance in the estimation process, hence minimize the bias-variance trade off. The bias-variance trade-off refers to the relationship between the bias and variance of an estimator in statistical analysis. In the context of volatility estimation, such as realized volatility (RV), the bias represents the difference between the expected value of the estimator and the true value of the volatility. On the other hand, the variance measures the variability of the estimator's values around its expected value.
+
+
+##Reference
+
+Andersen, Torben G., Tim Bollerslev, and Francis X. Diebold. "Parametric and nonparametric volatility measurement." Handbook of financial econometrics: Tools and techniques. North-Holland, 2010. 67-137.
+
+Andersen, T. G., & Benzoni, L. (2008). Realized Volatility, Working Paper 2008-14.
+
+[1]: https://example.com/andersen-2008.pdf
+[2]: https://example.com/andersen-2008.pdf](https://www.sas.upenn.edu/~fdiebold/papers/paper50/abd071102.pdf
+[3]: https://www.chicagofed.org/-/media/publications/working-papers/2008/wp2008-14-pdf.pdf
 
 
 
