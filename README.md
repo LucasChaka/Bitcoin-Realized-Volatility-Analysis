@@ -37,85 +37,85 @@ For the purpose of data visualization, some data was initially obtained from Yah
 
 ## Measuring Volatility
 
-In the previous section, some of the stylized facts of financial asset returns have been established. Based on the stylized facts, volatility estimators such as the Historical Volatility, Implied Volatility Models, exponentially weighted moving average models, Auto-regressive Volatility models and ARCH family models have been extensively theorized by \textcite{brooks2014c} in great detail. However, the scope of this paper focuses on Volatility estimation via the so-called realized Volatility, which, according to \textcite{andersen2008realized}, is an extension of the historical volatility estimator.
+In the previous section, some of the stylized facts of financial asset returns have been established. Based on the stylized facts, volatility estimators such as the Historical Volatility, Implied Volatility Models, exponentially weighted moving average models, Auto-regressive Volatility models, and ARCH family models have been extensively theorized by [Brooks (2014)] in great detail. However, the scope of this paper focuses on Volatility estimation via the so-called realized Volatility, which according to [Andersen (2008)] is an extension of the historical volatility estimator.
+
+[Andersen (2008)] defined realized volatility as a fully non-parametric approach to the ex-post measurement of the true realized return variation over a specific trading period. The objective is to estimate realized volatility in a simple and non-parametric way. It is then possible to showcase how volatility is estimated as a discrete-time or continuous-time process.
 
 ### Discrete-time Process
 
-Suppose a tick-by-tick price of an asset at day \( t \) in a discrete-time process at an irregularly spaced time interval. Then the return of the asset at a point in time would be given as
+Suppose a tick-by-tick price of an asset at day t in a discrete-time process at an irregularly spaced time interval. Then the return of the asset at a point in time would be given as
 
-\[
+$$
 r_{t,i} = \ln P_{t,i} - \ln P_{t-1,i}
-\]
+$$
 
-where \( \ln P_{t,i} - \ln P_{t-1,i} \) is the natural logarithm of the price at time \( t \) and \( t-1 \), and \( r_{t,i} \) is the return of an asset with all the observation points. Then the sum of all the log returns will be
+where $\ln P_{t,i} - \ln P_{t-1,i}$ is the natural logarithm of the price at times t and t-1, and $r_{t,i}$ is the return of an asset with all the observation points. Then the sum of all the log returns will be
 
-\[
+$$
 r_t = \sum_{i=1}^M r_{t,i}
-\]
+$$
 
-where \( M \) is the total number of observations within the specific trading day. \( M \) can be thousands of observations. Then the realized variance can be defined as the sum of all available intra-day high-frequency squared returns.
+where M is the total number of observations within the specific trading day. M can be thousands of observations. Then the realized variance can be defined as the sum of all available intra-day high-frequency squared returns.
 
-\[
+$$
 RV_t^{(all)} = \sum_{i=1}^M r_{t,i}^2
-\]
+$$
 
-where \( RV_t^{(all)} \) is the realized variance as labeled by \textcite{mcaleer2008realized}. The square root of the realized variance is the realized volatility. If the intra-day returns are uncorrelated, then \( RV^{(all)} \) is an unbiased estimator of the latent volatility, which is not purely a function of observables\footnote{\textcite{robert2001good}, p.238}. The proof for the uncorrelatedness of intra-day returns is presented in Appendix \ref{}.
+where $RV_t^{(all)}$ is the realized variance as labeled by [McAleer (2008)]. The square root of the realized variance is the realized volatility. If the intra-day returns are uncorrelated, then $RV^{(all)}$ is an unbiased estimator of the latent volatility, which is not purely based on observables [Robert Engle, 2001].
 
 #### Continuous-time Process
 
-Suppose a log price of an asset at day \( t \) follows a continuous-time diffusion process where the total differential of price at time \( (t+\tau) \) is as follows
+Suppose the log price of an asset at day t follows a continuous-time diffusion process where the total differential of the price at time (t+\tau) is as follows:
 
-\[
+$$
 dp(t+\tau) = \mu(t+\tau)d\tau + \sigma(t+\tau)dW(t+\tau)
-\]
+$$
 
-where \( 0 \leq \tau \leq 1 \), \( t=1,2,\ldots \).
+where $0 \leq \tau \leq 1$, and t = 1, 2, .... In this equation, $\mu(t+\tau)$ is the drift term, $\sigma(t+\tau)$ is the instantaneous volatility, $W(t+\tau)$ is the standard Brownian motion, and $\tau$ is the grid of observation times. There is linearity between $\sigma(t+\tau)$ and $W(t+\tau)$. As [Danyliv et al. (2019)] define it, the instantaneous volatility is simply the volatility at literally few time intervals or at the spot.
 
-If continuously compounded daily returns over \([t-h,t]\) are
+If continuously compounded daily returns over [t-h, t] are given by $r_t = P(t) - P(t-h)$, as defined by [Andersen (2005)], and Gaussian conditional on an information set $I_t$:
 
-\[
-r_t = P(t) - P(t-h)
-\]
-
-as defined by \textcite{andersen2005roughing}, and Gaussian conditional on an information set \( \{I_t\} \),
-
-\[
+$$
 I_t = \left[\mu(t+\tau), \sigma(t+\tau)\right]_{\tau=0}^{\tau=1}
-\]
+$$
 
-then
+then $r_t|I_t$ is normally distributed with a mean as a definite integral of the drift term and standard deviation as a definite integral of the instantaneous volatility.
 
-\[
-r_t | I_t \sim \mathcal{N}\left(\int_0^1 \mu(t+\tau)d\tau, \int_0^1 \sigma(t+\tau)d\tau\right)
-\]
+$$
+r_t|I_t \sim \mathcal{N}\left(\int_0^1 \mu(t+\tau)d\tau, \int_0^1 \sigma(t+\tau)d\tau\right)
+$$
 
-Integrated volatility \( \sigma(t+\tau)d\tau \) is then a measure of ex-post volatility (a volatility measurement weighted against a portfolio return in time)\footnote{\textcite{mcaleer2008realized}, p.15-16}.
+Integrated volatility $\sigma(t+\tau)d\tau$ is then a measure of ex-post volatility (a volatility measurement weighted against a portfolio return in time) [McAleer (2008)].
 
 ##### Distributional Property of Realized Volatility
 
 So far, we have implicitly assumed that there is no micro-structure noise effect. Without micro-structure noise effect, RV is a consistent estimator of the true volatility and asymptotically normally distributed.
 
-Micro-structure noise can be viewed as the correlation between the disturbance term \( \epsilon \) at time \( t \) and \( t-1 \). When the observations are noisy, the true structure of the observed log-returns \( r_{t,i} \) is given by an MA(1) process\footnote{\textcite{ait2008high}, p.4}. If
+Micro-structure noise can be viewed as the correlation between the disturbance term $\epsilon$ at time t and t-1. When the observations are noisy, the true structure of the observed log-returns $r_{t,i}$ is given by an MA(1) process [Aït-Sahalia et al. (2008)]. If
 
-\[
-P_{t,i} = P_{t,i}^{*} - \varepsilon_{t,i}
-\]
+$$
+P_{t,i} = P_{t,i}^* - \varepsilon_{t,i}
+$$
 
-where \( \varepsilon_{t,i} \) is the Micro-structure noise and \( P_{t,i}^{*} \) is the true price process, then
+where $\varepsilon_{t,i}$ is the Micro-structure noise and $P_{t,i}^*$ is the true price process, then
 
-\[
-r_{t,i} = r_{t,i}^{*} + \varepsilon_{t,i} - \varepsilon_{t,{i-1}}
-\]
+$$
+r_{t,i} = r_{t,i}^* + \varepsilon_{t,i} - \varepsilon_{t,{i-1}}
+$$
 
-where \( r_{t,i}^{*} \) is the log return of the true price process. Then the existence of the Micro-structure noise implies that equation (1) is not a consistent estimator of the true unobserved volatility. To account for Micro-structure noise, then the following assumptions can be considered,
+where $r_{t,i}^*$ is the log return of the true price process. Then the existence of the Micro-structure noise implies that equation (1) is not a consistent estimator of the true unobserved volatility. To account for Micro-structure noise, the following assumptions can be considered:
 
-1. In the case of IID Noise Structure \( E(\varepsilon) = 0 \)
-   - In the case of Dependent Noise Structure, \( E(\varepsilon) = 0 \), stationary-and-is-exponentially-declining as the time intervals increase
-2. \( V_{t,i} = \varepsilon_{t,i} - \varepsilon_{t,{i-1}} \) is constant
-3. Noise is independent of the price process
+1. In the case of IID Noise Structure:
+   - $E(\varepsilon) = 0$
 
-If the data is contaminated by Micro-Noise Structure, then RV is not a consistent estimator of the Integrated variance. Hence, Micro-Structure Noise Bias exists. The mathematical explanation of Micro-Structure Noise Bias is presented in Appendix \ref{AppendixB}.
+2. In the case of Dependent Noise Structure:
+   - $E(\varepsilon) = 0$
+   - stationary-and-is-exponentially-declining as the time intervals increase
 
+3. $V_{t,i} = \varepsilon_{t,i} - \varepsilon_{t,{i-1}}$ is constant.
+4. Noise is independent of the price process.
+
+If the data is contaminated by Micro-Noise Structure, then RV is not a consistent estimator of the Integrated variance. Hence, Micro-Structure Noise Bias exists. The mathematical explanation of Micro-Structure Noise Bias is presented in Appendix B.
 
 ### The Theory of Sampling Irregularly Spaced Financial Data
 
