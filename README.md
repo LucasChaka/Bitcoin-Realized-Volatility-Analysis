@@ -1,8 +1,7 @@
-# Bitcoin-Realized-Volatility-Analysis
+# Bitcoin Realized Volatility Analysis 
 
-During my master's program, I undertook a seminar project in financial econometrics, applying methodologies learned from coursework. What follows is an adapted and improved version, offering a comprehensive analysis of Bitcoin price time series realized volatility using the HAR-RV model. The analysis covers various aspects, including the theoretical model itself and its empirical application to Bitcoin. Initially executed in R, the seminar has now been tailored for public consumption, featuring a recoding of the R scripts into Python, and where necessary, SQL scripts for the convenience of public access and reference.
-
-**Disclaimer**: Please be aware that, due to privacy and security considerations, the original PDF and several details of the original seminar will not be publicly uploaded, as this is an edited version intended for GitHub usage. However, if you are interested in accessing the original PDF of the seminar, please feel free to contact me via email.
+Welcome to an in-depth exploration of the fascinating world of Bitcoin price volatility. In this project, we dive deep into the dynamics of Bitcoin's price movements, exploring a range of models and their real-world applications to this captivating digital currency.
+###The choice of data is due to an easier availaibility of Tick Bitcoin data than etfs or stocks.
 
 ## Table of Contents
 - Introduction
