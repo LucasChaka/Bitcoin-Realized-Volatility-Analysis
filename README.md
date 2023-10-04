@@ -1,7 +1,6 @@
 # Bitcoin Realized Volatility Analysis 
 
-Welcome to an in-depth exploration of the fascinating world of Bitcoin price volatility. In this project, we dive deep into the dynamics of Bitcoin's price movements, exploring a range of models and their real-world applications to this captivating digital currency.
-###The choice of data is due to an easier availaibility of Tick Bitcoin data than etfs or stocks.
+The following is an in-depth exploration of the fascinating world of Bitcoin price volatility. In this project, we dive deep into the dynamics of Bitcoin's price movements, exploring a range of models and their real-world applications to this captivating digital currency.
 
 ## Table of Contents
 - Introduction
@@ -14,15 +13,13 @@ Welcome to an in-depth exploration of the fascinating world of Bitcoin price vol
 
 ## Analysis Overview
 
-The analysis includes regression results and discussions on the effectiveness of the HAR-RV model in capturing volatility in Bitcoin return time series. The conclusion highlights the need for further research to incorporate additional estimation methods and improve forecasting accuracy. This repository serves as a valuable resource for researchers and analysts interested in understanding and modeling volatility in cryptocurrency markets.
+The analysis includes regression results and discussions on the effectiveness of different financial time-series models in capturing volatility in Bitcoin return time series. The conclusion highlights the need for further research to incorporate additional estimation methods and improve forecasting accuracy. This repository serves as a valuable resource for researchers and analysts interested in understanding and modeling volatility in cryptocurrency markets.
 
 ## Introduction
 
-In recent years, technological advancements have transformed the world of finance, enabling the collection and analysis of high-frequency financial data, which provides valuable insights into market dynamics. High-frequency financial data, often irregularly spaced over time, provides detailed tick-by-tick records of financial variables. Volatility, a crucial metric for assessing the risk of financial asset returns, quantifies the deviation and stability of return values from their expected levels.
-
-This project centers on the estimation and modeling of volatility, employing the Realized Volatility (RV) and HAR-RV model. The model is specifically applied to Bitcoin price time series data. While similar models have found extensive use in traditional forex markets, their relevance to the cryptocurrency market, particularly Bitcoin, remains a compelling question.
-
-The core research question addressed in this analysis is the examination of realized volatility (RV) in Bitcoin price time series using the HAR-RV model. The objective is to assess the effectiveness of the HAR-RV model in capturing volatility in Bitcoin price time series and to compare various estimation methods. This study serves to explore both the theoretical foundations and empirical aspects of RV analysis within the context of Bitcoin.
+In recent years, the world of finance has undergone a technological revolution, ushering in a new era of possibilities. Technological advancements have enabled the collection and analysis of high-frequency financial data, offering invaluable insights into the ever-evolving dynamics of markets. These high-frequency data streams, often characterized by irregular temporal spacing, provide a tick-by-tick record of essential financial variables. Such a financial transformation aids in improving the measurement and estimation of volatility, a critical metric in gauging the risk associated with asset returns. Volatility quantifies the fluctuations and deviations of asset prices from their expected levels, making it an indispensable tool for investors and analysts alike.
+In this intriguing project, we embark on a journey into the realm of volatility estimation and modeling, guided by the Realized Volatility (RV) estimator. While RV has long been a staple in traditional financial domains like forex, derivatives, and equity markets, its foray into the cryptocurrency arena, with a specific focus on the ever-persistent Bitcoin, adds a compelling layer of complexity. Here, we endeavor to unravel the mysteries of RV within the context of Bitcoin and the broader cryptocurrency market.
+At the heart of our exploration lies a fundamental question: How does realized volatility (RV) manifest in the Bitcoin price time series, and can various models effectively capture it? Our mission is clear—to assess and compare the performance of these models in deciphering the intricacies of Bitcoin's price movements. Join us as we embark on this research journey, not only to delve into the theoretical underpinnings but also to unravel the practical dimensions of RV analysis in the realm of Bitcoin.
 
 ## Data Sourcing
 
