@@ -1,6 +1,6 @@
 # Bitcoin Realized Volatility Analysis 
 
-The following is an in-depth exploration of the fascinating world of Bitcoin price volatility. In this project, we dive deep into the dynamics of Bitcoin's price movements, exploring a range of models and their real-world applications to this captivating digital currency.
+The following is an in-depth exploration of the fascinating world of Bitcoin price volatility. This project dives deep into the dynamics of Bitcoin's price movements, exploring a range of models and their real-world applications to this captivating digital currency.
 
 ## Table of Contents
 - Introduction
@@ -17,13 +17,17 @@ The analysis includes regression results and discussions on the effectiveness of
 
 ## Introduction
 
-In recent years, the world of finance has undergone a technological revolution, ushering in a new era of possibilities. Technological advancements have enabled the collection and analysis of high-frequency financial data, offering invaluable insights into the ever-evolving dynamics of markets. These high-frequency data streams, often characterized by irregular temporal spacing, provide a tick-by-tick record of essential financial variables. Such a financial transformation aids in improving the measurement and estimation of volatility, a critical metric in gauging the risk associated with asset returns. Volatility quantifies the fluctuations and deviations of asset prices from their expected levels, making it an indispensable tool for investors and analysts alike.
-In this intriguing project, we embark on a journey into the realm of volatility estimation and modeling, guided by the Realized Volatility (RV) estimator. While RV has long been a staple in traditional financial domains like forex, derivatives, and equity markets, its foray into the cryptocurrency arena, with a specific focus on the ever-persistent Bitcoin, adds a compelling layer of complexity. Here, we endeavor to unravel the mysteries of RV within the context of Bitcoin and the broader cryptocurrency market.
-At the heart of our exploration lies a fundamental question: How does realized volatility (RV) manifest in the Bitcoin price time series, and can various models effectively capture it? Our mission is clear—to assess and compare the performance of these models in deciphering the intricacies of Bitcoin's price movements. Join us as we embark on this research journey, not only to delve into the theoretical underpinnings but also to unravel the practical dimensions of RV analysis in the realm of Bitcoin.
+In recent years, the finance industry has witnessed a technological revolution, ushering in an era of unprecedented possibilities. Technological advancements have paved the way for the collection and analysis of high-frequency financial data, offering invaluable insights into the ever-evolving dynamics of global markets. These high-frequency data streams, often characterized by irregular temporal spacing, provide a tick-by-tick record of essential financial variables. This financial transformation has significantly enhanced the measurement and estimation of volatility, a critical metric for gauging the risk associated with asset returns. Volatility quantifies the fluctuations and deviations of asset prices from their expected levels, making it an indispensable tool for investors and analysts alike.
+
+In this project, the focus is volatility estimation and modeling, via the Realized Volatility (RV) estimator. While RV has long held a pivotal role in traditional financial domains such as forex, derivatives, and equity markets, its expansion into the cryptocurrency sphere, with a specific emphasis on Bitcoin, introduces a compelling layer of complexity. This endeavor seeks to unravel the mysteries of RV within the context of Bitcoin.
+
+At the heart of this exploration lies a fundamental question: How does realized volatility (RV) manifest in the Bitcoin price time series, and can various models effectively capture it? The mission at hand is clear—to assess and compare the performance of these models in deciphering the intricacies of Bitcoin's price movements. 
 
 ## Data Sourcing
 
-In the original research, an in-depth analysis was conducted using regularly updated, tick-by-tick high-frequency data sourced from an API connecting R to the Kraken Cryptocurrency Exchange market. The dataset covered a significant timeframe, ranging from January 8<sup>th</sup>, 2014, to March 14<sup>th</sup>, 2021. Notably, the data is continually refreshed, ensuring that the code can access the most current insights whenever it is executed.
+[bitcoincharts.com][4] offers
+ 
+ The dataset covered a significant timeframe, ranging from January 8<sup>th</sup>, 2014, to March 14<sup>th</sup>, 2021. Notably, the data is continually refreshed, ensuring that the code can access the most current insights whenever it is executed.
 
 For the purpose of data visualization, some data was initially obtained from Yahoo Finance! However, the project has evolved to sharpen its focus. Consequently, data from Yahoo Finance! will no longer be utilized. It's important to note that the analysis exclusively considers the BTC-EUR exchange rate.
 
@@ -129,6 +133,7 @@ Andersen, T. G., & Benzoni, L. (2008). Realized Volatility, Working Paper 2008-1
 [1]: https://example.com/andersen-2008.pdf
 [2]: https://example.com/andersen-2008.pdf](https://www.sas.upenn.edu/~fdiebold/papers/paper50/abd071102.pdf
 [3]: https://www.chicagofed.org/-/media/publications/working-papers/2008/wp2008-14-pdf.pdf
+[4]: bitcoincharts.com
 
 
 
