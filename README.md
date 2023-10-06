@@ -51,29 +51,32 @@ $$
 
 Here, $RV_t^{(all)}$ is the realized variance as labeled by [McAleer (2008)][6]. The square root of the realized variance is the realized volatility. If the intra-day returns are uncorrelated, then $RV^{(all)}$ is an unbiased estimator of the true unobservable volatility.
 
-#### Continuous-time Process
+### Continuous-time Process
 
-Suppose the log price of an asset at day t follows a continuous-time diffusion process where the total differential of the price at time (t+\tau) is as follows:
+While prices are typically observed at discrete and irregularly spaced intervals in practice, for mathematical explanation within a continuous-time setting, we aim to quantify the true, unobserved volatility. It's important to note that the discrete-time process serves as an approximation of the continuous-time process ([Duong, D., & Swanson, N. R. (2011)][8]).
+
+Consider the log price of an asset at day t, which follows a diffusion process. The total differential of the price at time $(t+\tau)$ is described as:
 
 $$
 dp(t+\tau) = \mu(t+\tau)d\tau + \sigma(t+\tau)dW(t+\tau)
 $$
 
-where $0 \leq \tau \leq 1$, and t = 1, 2, .... In this equation, $\mu(t+\tau)$ is the drift term, $\sigma(t+\tau)$ is the instantaneous volatility, $W(t+\tau)$ is the standard Brownian motion, and $\tau$ is the grid of observation times. There is linearity between $\sigma(t+\tau)$ and $W(t+\tau)$. As [Danyliv et al. (2019)] define it, the instantaneous volatility is simply the volatility at literally few time intervals or at the spot.
+Here, $0 \leq \tau \leq 1$, and t = 1, 2, .... In this equation, $\mu(t+\tau)$ represents the drift term, $\sigma(t+\tau)$ signifies the spot volatility, $W(t+\tau)$ stands for the standard Brownian motion, and $\tau$ denotes the grid of observation times. It's worth noting that there exists a linear relationship between $\sigma(t+\tau)$ and $W(t+\tau)$. 
 
-If continuously compounded daily returns over [t-h, t] are given by $r_t = P(t) - P(t-h)$, as defined by [Andersen (2005)], and Gaussian conditional on an information set $I_t$:
+If we define continuously compounded daily returns over [t-h, t] as $r_t = P(t) - P(t-h)$, following the definition by [Andersen (2005)][7], and assume these returns are Gaussian conditional on an information set $I_t$:
 
 $$
 I_t = \left[\mu(t+\tau), \sigma(t+\tau)\right]_{\tau=0}^{\tau=1}
 $$
 
-then $r_t|I_t$ is normally distributed with a mean as a definite integral of the drift term and standard deviation as a definite integral of the instantaneous volatility.
+Then, $r_t|I_t$ follows a normal distribution. Its mean is represented as a definite integral of the drift term, and its standard deviation is a definite integral of the volatility.
 
 $$
 r_t|I_t \sim \mathcal{N}\left(\int_0^1 \mu(t+\tau)d\tau, \int_0^1 \sigma(t+\tau)d\tau\right)
 $$
 
-Integrated volatility $\sigma(t+\tau)d\tau$ is then a measure of ex-post volatility (a volatility measurement weighted against a portfolio return in time) [McAleer (2008)].
+The integrated volatility, denoted as $\int_0^1 \sigma(t+\tau)d\tau$, serves as a measure of volatility that has been adjusted against a portfolio return over time ([McAleer (2008)][6]).
+
 
 ##### Distributional Property of Realized Volatility
 
@@ -126,11 +129,15 @@ In financial markets, prices are observed at discrete and irregularly spaced tim
 
 ## Reference
 
-Andersen, Torben G., Tim Bollerslev, and Francis X. Diebold. "Parametric and nonparametric volatility measurement." Handbook of financial econometrics: Tools and techniques. North-Holland, 2010. 67-137.
+Andersen, T. G., Bollerslev, T., & Diebold, F. X. (2010). Parametric and nonparametric volatility measurement. In Handbook of financial econometrics: Tools and techniques (pp. 67-137). North-Holland.
 
 Andersen, T. G., & Benzoni, L. (2008). Realized Volatility, Working Paper 2008-14.
 
 Andersen, T. G., Bollerslev, T., Christoffersen, P. F., & Diebold, F. X. (2006). Volatility and correlation forecasting. Handbook of economic forecasting, 1, 777-878.
+
+Andersen, T. G., Bollerslev, T., & Diebold, F. X. (2005). Roughing It Up: Including Jump Components in the Measurement. Modeling and Forecast (ing of Return Volatility, tTech. rep., NBER.
+
+Duong, D., & Swanson, N. R. (2011). Volatility in discrete and continuous-time models: A survey with new evidence on large and small jumps. In Missing data methods: Time-series methods and applications (Vol. 27, pp. 179-233). Emerald Group Publishing Limited.
 
 McAleer, M., Medeiros, M. C. (2008). Realized volatility: A review. Econometric Reviews, 27(1-3), 10-45.
 
@@ -140,6 +147,7 @@ McAleer, M., Medeiros, M. C. (2008). Realized volatility: A review. Econometric 
 [4]: bitcoincharts.com
 [5]: http://public.econ.duke.edu/~boller/Published_Papers/abcd_hand_06.pdf
 [6]: https://www.econ.puc-rio.br/uploads/adm/trabalhos/files/td531.pdf
-
+[7]: https://deliverypdf.ssrn.com/delivery.php?ID=677119021086096013109002116117123088095008049065074002106017127113127117012041003020017039115082104096066071054002066122116087083123002118031067001003122084095121007007117009027001110117073087082&EXT=pdf&INDEX=TRUE
+[8]: https://deliverypdf.ssrn.com/delivery.php?ID=641117074119118074094029091091090024016073027027075062101005089022078127102114127011096100063045053098009090094096104027099029059021009023036089082101027094068017055042007104067113000100023002119005085029096069093124093080112003084111100096066071&EXT=pdf&INDEX=TRUE
 
 
