@@ -1,6 +1,6 @@
 # Bitcoin Realized Volatility Analysis 
 
-The following is an in-depth exploration of the fascinating world of Bitcoin price volatility. This project dives deep into the dynamics of Bitcoin's price movements, exploring a range of models and their real-world applications to this captivating digital currency.
+The following is an in-depth exploration of the fascinating world of Bitcoin price volatility. This project dives deep into the dynamics of Bitcoin's price movements, exploring the Hetrogenous Autoregressive Realized Volatility (HAR-RV) model and it's real-world applications to this captivating digital currency.
 
 ## Table of Contents
 - Introduction
@@ -13,35 +13,21 @@ The following is an in-depth exploration of the fascinating world of Bitcoin pri
 
 ## Analysis Overview
 
-The analysis includes regression results and discussions on the effectiveness of different financial time-series models in capturing volatility in Bitcoin return time series. The conclusion highlights the need for further research to incorporate additional estimation methods and improve forecasting accuracy. This repository serves as a valuable resource for researchers and analysts interested in understanding and modeling volatility in cryptocurrency markets.
+The analysis includes regression results and discussions on the effectiveness of HAR-RV model in capturing volatility in Bitcoin return time series. The conclusion highlights the need for further research to incorporate additional estimation methods, and models and improve forecasting accuracy. This repository serves as a valuable resource for researchers and analysts interested in understanding and modeling volatility in cryptocurrency markets.
 
 ## Introduction
 
 In recent years, the finance industry has witnessed a technological revolution, ushering in an era of unprecedented possibilities. Technological advancements have paved the way for the collection and analysis of high-frequency financial data, offering invaluable insights into the ever-evolving dynamics of global markets. These high-frequency data streams, often characterized by irregular temporal spacing, provide a tick-by-tick record of essential financial variables. This financial transformation has significantly enhanced the measurement and estimation of volatility, a critical metric for gauging the risk associated with asset returns. Volatility quantifies the fluctuations and deviations of asset prices from their expected levels, making it an indispensable tool for investors and analysts alike.
 
-In this project, the focus is volatility estimation and modeling, via the Realized Volatility (RV) estimator. While RV has long held a pivotal role in traditional financial domains such as forex, derivatives, and equity markets, its expansion into the cryptocurrency sphere, with a specific emphasis on Bitcoin, introduces a compelling layer of complexity. This endeavor seeks to unravel the mysteries of RV within the context of Bitcoin.
+In this project, the focus is volatility estimation and modeling, via the Realized Volatility (RV) estimator and the HAR-RV model. While RV has long held a pivotal role in traditional financial domains such as forex, derivatives, and equity markets, its expansion into the cryptocurrency sphere, with a specific emphasis on Bitcoin, introduces a compelling layer of complexity. This endeavor seeks to unravel the mysteries of RV within the context of Bitcoin.
 
-At the heart of this exploration lies a fundamental question: How does realized volatility (RV) manifest in the Bitcoin price time series, and can various models effectively capture it? The mission at hand is clear—to assess and compare the performance of these models in deciphering the intricacies of Bitcoin's price movements. 
-
-## Data Sourcing
-
-[bitcoincharts.com][4] offers
- 
- The dataset covered a significant timeframe, ranging from January 8<sup>th</sup>, 2014, to March 14<sup>th</sup>, 2021. Notably, the data is continually refreshed, ensuring that the code can access the most current insights whenever it is executed.
-
-For the purpose of data visualization, some data was initially obtained from Yahoo Finance! However, the project has evolved to sharpen its focus. Consequently, data from Yahoo Finance! will no longer be utilized. It's important to note that the analysis exclusively considers the BTC-EUR exchange rate.
-
-### The R-Code
-
-### The equivalent Python code
+At the heart of this exploration lies a fundamental question: How does realized volatility (RV) manifest in the Bitcoin price time series, and can the HAR-RV model effectively capture it? The mission at hand is clear—to assess and compare the performance of this model in deciphering the intricacies of Bitcoin's price movements. 
 
 ## Measuring and Defining Volatility
 
-Volatility refers to the degree of variation in the returns of a financial instrument over a certain period of time. It is a statistical measure of the dispersion of returns and is often used as a measure of risk ([Anderson et.al (2010)][2]). To measure volatility, there are two main categories of approaches: the the parametric and non-parametric models for volatility estimation. The parametric models include ARCH (Auto-Regressive Conditional Heteroskedasticity) Models, stochastic volatility models and continuous-time volatility models. On the other hand, the non-parametric volatility measurements focus on quantifying volatility without relying on specific functional form assumptions. Such measurements include modeling Instantaneous Volatility and Realized Volatility Measures.
+Volatility refers to the degree of variation in the returns of a financial instrument over a certain period of time. It is a statistical measure of the dispersion of returns and is often used as a measure of risk ([Anderson et al. (2010)][2]). However, as thoroughly explained by [Anderson et al. (2006)][5], volatility is inherently unobservable, leaving room to rely on a proxy for measuring the volatility of an asset's returns. To measure volatility, there are two main categories of approaches: parametric and non-parametric models for volatility estimation. Parametric models include ARCH (Auto-Regressive Conditional Heteroskedasticity) models, stochastic volatility models, and continuous-time volatility models. On the other hand, non-parametric volatility measurements focus on quantifying volatility without relying on specific functional form assumptions. Such measurements include modeling *Instantaneous Volatility* and *Realized Volatility* measures." In this context, the purpose of this project comes to light — to harness the power of realized volatility as a tool for estimation and analysis, unlocking new insights into financial markets.
 
-[Andersen (2008)][3] defined realized volatility as a fully non-parametric approach for the ex-post measurement of the true realized return variation over a specific trading period. The objective is to estimate realized volatility in a simple and non-parametric manner. This enables us to demonstrate how volatility is estimated as a discrete-time or continuous-time process.
-
-Realized volatility quantifies notional volatility over fixed-length time intervals, h > 0  
+[Andersen (2008)][3] defined realized volatility as a fully non-parametric approach for measuring the true volatility over a specific trading period. The objective is to estimate realized volatility in a simple and non-parametric manner. This enables us to demonstrate how volatility is estimated in both discrete-time and continuous-time processes
 
 ### Discrete-time Process
 
@@ -119,6 +105,20 @@ where $r_{t,i}^*$ is the log return of the true price process. Then the existenc
 
 If the data is contaminated by Micro-Noise Structure, then RV is not a consistent estimator of the Integrated variance. Hence, Micro-Structure Noise Bias exists. The mathematical explanation of Micro-Structure Noise Bias is presented in Appendix B.
 
+## Data Sourcing
+
+[bitcoincharts.com][4] offers
+ 
+ The dataset covered a significant timeframe, ranging from January 8<sup>th</sup>, 2014, to March 14<sup>th</sup>, 2021. Notably, the data is continually refreshed, ensuring that the code can access the most current insights whenever it is executed.
+
+For the purpose of data visualization, some data was initially obtained from Yahoo Finance! However, the project has evolved to sharpen its focus. Consequently, data from Yahoo Finance! will no longer be utilized. It's important to note that the analysis exclusively considers the BTC-EUR exchange rate.
+
+### The R-Code
+
+### The equivalent Python code
+
+
+
 ### The Theory of Sampling Irregularly Spaced Financial Data
 
 In financial markets, prices are observed at discrete and irregularly spaced time intervals. To estimate volatility in a financial time-series, it is recommended to use equidistant sampling schemes where the intervals between the ticks are evenly spaced. This helps minimize bias and variance in the estimation process, hence minimize the bias-variance trade off. The bias-variance trade-off refers to the relationship between the bias and variance of an estimator in statistical analysis. In the context of volatility estimation, such as realized volatility (RV), the bias represents the difference between the expected value of the estimator and the true value of the volatility. On the other hand, the variance measures the variability of the estimator's values around its expected value.
@@ -130,11 +130,13 @@ Andersen, Torben G., Tim Bollerslev, and Francis X. Diebold. "Parametric and non
 
 Andersen, T. G., & Benzoni, L. (2008). Realized Volatility, Working Paper 2008-14.
 
+Andersen, T. G., Bollerslev, T., Christoffersen, P. F., & Diebold, F. X. (2006). Volatility and correlation forecasting. Handbook of economic forecasting, 1, 777-878.
+
 [1]: https://example.com/andersen-2008.pdf
 [2]: https://example.com/andersen-2008.pdf](https://www.sas.upenn.edu/~fdiebold/papers/paper50/abd071102.pdf
 [3]: https://www.chicagofed.org/-/media/publications/working-papers/2008/wp2008-14-pdf.pdf
 [4]: bitcoincharts.com
-
+[5]: http://public.econ.duke.edu/~boller/Published_Papers/abcd_hand_06.pdf
 
 
 
