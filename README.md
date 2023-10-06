@@ -25,31 +25,31 @@ At the heart of this exploration lies a fundamental question: How does realized 
 
 ## Measuring and Defining Volatility
 
-Volatility refers to the degree of variation in the returns of a financial instrument over a certain period of time. It is a statistical measure of the dispersion of returns and is often used as a measure of risk ([Anderson et al. (2010)][2]). However, as thoroughly explained by [Anderson et al. (2006)][5], volatility is inherently unobservable, leaving room to rely on a proxy for measuring the volatility of an asset's returns. To measure volatility, there are two main categories of approaches: parametric and non-parametric models for volatility estimation. Parametric models include ARCH (Auto-Regressive Conditional Heteroskedasticity) models, stochastic volatility models, and continuous-time volatility models. On the other hand, non-parametric volatility measurements focus on quantifying volatility without relying on specific functional form assumptions. Such measurements include modeling *Instantaneous Volatility* and *Realized Volatility* measures." In this context, the purpose of this project comes to light — to harness the power of realized volatility as a tool for estimation and analysis, unlocking new insights into financial markets.
+Volatility refers to the degree of variation in the returns of a financial instrument over a certain period of time. It is a statistical measure of the dispersion of returns and is often used as a measure of risk ([Anderson et al. (2010)][2]). However, as thoroughly explained by [Anderson et al. (2006)][5], volatility is inherently unobservable, leaving room to rely on a proxy for measuring the volatility of an asset's returns. To measure volatility, there are two main categories of approaches: parametric and non-parametric models for volatility estimation. Parametric models include ARCH (Auto-Regressive Conditional Heteroskedasticity) models, stochastic volatility models, and continuous-time volatility models. On the other hand, non-parametric volatility measurements focus on quantifying volatility without relying on specific functional form assumptions. Such measurements include modeling *Instantaneous Volatility* and *Realized Volatility* measures. In this context, the purpose of this project comes to light — to harness the power of realized volatility as a tool for estimation and analysis, unlocking new insights into financial markets.
 
-[Andersen (2008)][3] defined realized volatility as a fully non-parametric approach for measuring the true volatility over a specific trading period. The objective is to estimate realized volatility in a simple and non-parametric manner. This enables us to demonstrate how volatility is estimated in both discrete-time and continuous-time processes
+[Andersen (2008)][3] defined realized volatility as a fully non-parametric approach for measuring the true volatility over a specific trading period. The objective is to estimate realized volatility in a simple and non-parametric manner. This enables us to demonstrate how realized volatility is estimated in both discrete-time and continuous-time processes.
 
 ### Discrete-time Process
 
-Suppose a tick-by-tick price of an asset at day t in a discrete-time process at an irregularly spaced time interval. Then the return of the asset at a point in time would be given as
+Suppose you have a tick-by-tick price of an asset at day t in a discrete-time process at irregularly spaced time intervals. Then the return of the asset at a specific point in time would be given as
 
 $$
 r_{t,i} = \ln P_{t,i} - \ln P_{t-1,i}
 $$
 
-where $\ln P_{t,i} - \ln P_{t-1,i}$ is the natural logarithm of the price at times t and t-1, and $r_{t,i}$ is the return of an asset with all the observation points. Then the sum of all the log returns will be
+Here, $\ln P_{t,i} - \ln P_{t-1,i}$ represents the natural logarithm of the asset price at times t and t-1, and $r_{t,i}$ represents the return of an asset with all the observation points. The sum of all the log returns can be calculated as
 
 $$
 r_t = \sum_{i=1}^M r_{t,i}
 $$
 
-where M is the total number of observations within the specific trading day. M can be thousands of observations. Then the realized variance can be defined as the sum of all available intra-day high-frequency squared returns.
+where M is the total number of observations within the specific trading day. M can consist of thousands of observations. The realized variance can then be defined as the sum of all available intra-day high-frequency squared returns.
 
 $$
 RV_t^{(all)} = \sum_{i=1}^M r_{t,i}^2
 $$
 
-where $RV_t^{(all)}$ is the realized variance as labeled by [McAleer (2008)]. The square root of the realized variance is the realized volatility. If the intra-day returns are uncorrelated, then $RV^{(all)}$ is an unbiased estimator of the latent volatility, which is not purely based on observables [Robert Engle, 2001].
+Here, $RV_t^{(all)}$ is the realized variance as labeled by [McAleer (2008)][6]. The square root of the realized variance is the realized volatility. If the intra-day returns are uncorrelated, then $RV^{(all)}$ is an unbiased estimator of the true unobservable volatility.
 
 #### Continuous-time Process
 
@@ -132,11 +132,14 @@ Andersen, T. G., & Benzoni, L. (2008). Realized Volatility, Working Paper 2008-1
 
 Andersen, T. G., Bollerslev, T., Christoffersen, P. F., & Diebold, F. X. (2006). Volatility and correlation forecasting. Handbook of economic forecasting, 1, 777-878.
 
+McAleer, M., Medeiros, M. C. (2008). Realized volatility: A review. Econometric Reviews, 27(1-3), 10-45.
+
 [1]: https://example.com/andersen-2008.pdf
 [2]: https://example.com/andersen-2008.pdf](https://www.sas.upenn.edu/~fdiebold/papers/paper50/abd071102.pdf
 [3]: https://www.chicagofed.org/-/media/publications/working-papers/2008/wp2008-14-pdf.pdf
 [4]: bitcoincharts.com
 [5]: http://public.econ.duke.edu/~boller/Published_Papers/abcd_hand_06.pdf
+[6]: https://www.econ.puc-rio.br/uploads/adm/trabalhos/files/td531.pdf
 
 
 
