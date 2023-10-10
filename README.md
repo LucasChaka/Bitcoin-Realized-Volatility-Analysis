@@ -116,9 +116,11 @@ If the data is contaminated by microstructure noise, then RV is not a consistent
 
 #### Calendar Time Sampling
 
-In addition to the microstructure noise bias, estimating tick-by-tick price series entails accumulations of noise that affects the variance of the estimator; which leads to a bias/variance trade-off in the estimation process([Bandi, F. M. Russell, J. R., (2004)][11]). 
+In addition to the microstructure noise bias, estimating tick-by-tick price series entails the accumulation of noise that affects the estimator's variance. This results in a bias/variance trade-off during the estimation process ([Bandi, F. M. Russell, J. R., (2004)][11]). The bias-variance trade-off refers to the relationship between the bias and variance of an estimator. In the context of volatility estimation, bias represents the difference between the expected value of the estimator and the true value of the volatility. On the other hand, variance measures the variability of the estimator's values around its expected value.
 
-Suppose in a day there are $0=\tau_0<\tau_1<.....<\tau_M=1$ intervals, and the length of the equi-distant sub-intervals is taken as $\delta_{i,{M_t}}=\tau_i-\tau_{i-1}$. As $\delta_{i,{M_t}}$ approaches zero, then the integrated volatility, $\int_{\tau_{i-1}}^{\tau_i} \sigma(t+\tau)d\tau$, is the measure of true volatility. According to \textcite{huang2013forecasting} when the observed price process is the true underlying price process plus micro-structure noise, it is shown that RV will be overwhelmed by the noise. Therefore, it may be optimal to sample less frequently than is the case in the absence of noise\footnote{\textcite{huang2013forecasting}, p.1}. Also according to \textcite{zhang2005tale}, the realized volatility does not converge to the true volatility as the sampling frequency increases, let's say from 5 minutes to an hour. The question now is what is the optimal frequency to sample.
+To estimate volatility in a financial time series, it is recommended to use an **optimal** equidistant sampling scheme where the intervals between the ticks are evenly spaced. Here's why:
+
+Suppose there are intervals in a day, denoted as $0=\tau_0<\tau_1<.....<\tau_M=1$, and the length of the equidistant sub-intervals is represented as $\delta_{i,{M_t}}=\tau_i-\tau_{i-1}$. As $\delta_{i,{M_t}}$ approaches zero, the unobserved volatility in a continuous-time process, $\int_{\tau_{i-1}}^{\tau_i} \sigma(t+\tau)d\tau$, becomes a measure of true volatility. According to [Zhang, L., Mykland, P. A., Ait-Sahalia, Y. (2005)][12], when the observed price process includes both the true underlying price process and microstructure noise, it is shown that RV will be overwhelmed by the noise, leading to biased estimation. Therefore, it may be optimal to sample less frequently. However, here is the paradox: the lower the sampling frequency, the less RV converges to the true unobserved volatility. For example, shifting from 1-minute equidistant sampling to 1-hour equidistant sampling results in a reduced convergence to true unobserved volatility.
 
 
 
@@ -180,6 +182,8 @@ Ait-Sahalia, Y., Yu, J. (2008). High frequency market microstructure noise estim
 
 Bandi, F. M. Russell, J. R., (2004). Microstructure noise, realized volatility, and optimal sampling. In Econometric Society 2004 Latin American Meetings (No. 220). Econometric Society.
 
+Zhang, L., Mykland, P. A., At-Sahalia, Y. (2005). A tale of two time scales: Determining integrated volatility with noisy high-frequency data. Journal of the American Statistical Association, 100(472), 1394-1411.
+
 [1]: https://example.com/andersen-2008.pdf
 [2]: https://www.sas.upenn.edu/~fdiebold/papers/paper50/abd071102.pdf
 [3]: https://www.chicagofed.org/-/media/publications/working-papers/2008/wp2008-14-pdf.pdf
@@ -191,3 +195,4 @@ Bandi, F. M. Russell, J. R., (2004). Microstructure noise, realized volatility, 
 [9]: https://www.sas.upenn.edu/~fdiebold/papers/paper41/abde.pdf
 [10]: https://www.nber.org/system/files/working_papers/w13825/w13825.pdf
 [11]: http://repec.org/esLATM04/up.3725.1082044351.pdf
+[12]: https://www.princeton.edu/~yacine/twoscales.pdf
