@@ -19,15 +19,15 @@ The analysis includes regression results and discussions on the effectiveness of
 
 In recent years, the finance industry has witnessed a technological revolution, ushering in an era of unprecedented possibilities. Technological advancements have paved the way for the collection and analysis of high-frequency financial data, offering invaluable insights into the ever-evolving dynamics of global markets. These high-frequency data streams, often characterized by irregular temporal spacing, provide a tick-by-tick record of essential financial variables. This financial transformation has significantly enhanced the measurement and estimation of volatility, a critical metric for gauging the risk associated with asset returns. Volatility quantifies the fluctuations and deviations of asset prices from their expected levels, making it an indispensable tool for investors and analysts alike.
 
-In this project, the focus is volatility estimation and modeling, via the Realized Volatility (RV) estimator and the HAR-RV model. While RV has long held a pivotal role in traditional financial domains such as forex, derivatives, and equity markets, its expansion into the cryptocurrency sphere, with a specific emphasis on Bitcoin, introduces a compelling layer of complexity. This endeavor seeks to unravel the mysteries of RV within the context of Bitcoin.
+In this project, the focus is volatility estimation and modeling, via the *Realized Volatility (RV)* estimator and the *HAR-RV* model. While RV has long held a pivotal role in traditional financial domains such as forex, derivatives, and equity markets, its expansion into the cryptocurrency sphere, with a specific emphasis on Bitcoin, introduces a compelling layer of complexity. This endeavor seeks to unravel the mysteries of RV within the context of Bitcoin.
 
-At the heart of this exploration lies a fundamental question: How does realized volatility (RV) manifest in the Bitcoin price time series, and can the HAR-RV model effectively capture it? The mission at hand is clear—to assess and compare the performance of this model in deciphering the intricacies of Bitcoin's price movements. 
+At the heart of this exploration lies a fundamental question: How does realized volatility (RV) manifest in the Bitcoin price time series, and can the HAR-RV model effectively capture it? The mission at hand is clear—to assess and compare the performance of this model in deciphering the volatilities of Bitcoin's price movements. 
 
 ## Measuring and Defining Volatility
 
 Volatility refers to the degree of variation in the returns of a financial instrument over a certain period of time. It is a statistical measure of the dispersion of returns and is often used as a measure of risk ([Anderson et al. (2010)][2]). However, as thoroughly explained by [Anderson et al. (2006)][5], volatility is inherently unobservable, leaving room to rely on a proxy for measuring the volatility of an asset's returns. To measure volatility, there are two main categories of approaches: parametric and non-parametric models for volatility estimation. Parametric models include ARCH (Auto-Regressive Conditional Heteroskedasticity) models, stochastic volatility models, and continuous-time volatility models. On the other hand, non-parametric volatility measurements focus on quantifying volatility without relying on specific functional form assumptions. Such measurements include modeling *Instantaneous Volatility* and *Realized Volatility* measures. In this context, the purpose of this project comes to light — to harness the power of realized volatility as a tool for estimation and analysis, unlocking new insights into financial markets.
 
-[Andersen (2008)][3] defined realized volatility as a fully non-parametric approach for measuring the true volatility over a specific trading period. The objective is to estimate realized volatility in a simple and non-parametric manner. This enables us to demonstrate how realized volatility is estimated in both discrete-time and continuous-time processes.
+[Andersen (2008)][3] defined realized volatility as a fully non-parametric approach for measuring the true volatility over a specific trading period. The objective for now is to estimate realized volatility in a simple and non-parametric manner. This enables us to demonstrate how realized volatility is estimated in both discrete-time and continuous-time processes.
 
 ### Discrete-time Process
 
@@ -78,23 +78,29 @@ $$
 The integrated volatility, denoted as $\int_0^1 \sigma(t+\tau)d\tau$, serves as a measure of volatility that has been adjusted against a portfolio return over time ([McAleer (2008)][6]).
 
 
-##### Distributional Property of Realized Volatility
+### Overcoming Micro-Structure Noise Effect with Calendar Time Sampling
 
-So far, we have implicitly assumed that there is no micro-structure noise effect. Without micro-structure noise effect, RV is a consistent estimator of the true volatility and asymptotically normally distributed.
+#### Micro-Structure Noise
 
-Micro-structure noise can be viewed as the correlation between the disturbance term $\epsilon$ at time t and t-1. When the observations are noisy, the true structure of the observed log-returns $r_{t,i}$ is given by an MA(1) process [Aït-Sahalia et al. (2008)]. If
+When prices are observed tick-by-tick, their values deviate from their 'efficient values' due to various market frictions, such as price discreteness, infrequent trading, or bid-ask bounce effects. This phenomenon is commonly referred to in finance and econometric literature as the microstructure noise effect. According to [Anderson et al. (2001)][9], these market microstructure features generally have little impact when analyzing longer-horizon interdaily returns (e.g., in an hourly format). However, they can significantly distort the distributional properties of high-frequency intraday returns when measured tick-by-tick.
+
+Up to this point, it has been implicitly assumed that there is no microstructure noise effect. In the absence of microstructure noise, RV serves as a consistent estimator of the true unobservable volatility and follows an asymptotic normal distribution. Microstructure noise arises from the correlation between the disturbance term ε at time $t$ and time $t-1$ as explained by [Aït-Sahalia et al. (2008)][10].
+
+If the observed prices are expressed as:
 
 $$
 P_{t,i} = P_{t,i}^* - \varepsilon_{t,i}
 $$
 
-where $\varepsilon_{t,i}$ is the Micro-structure noise and $P_{t,i}^*$ is the true price process, then
+where ε_{t,i} represents the microstructure noise and P_{t,i}^* is the true price process, then:
 
 $$
 r_{t,i} = r_{t,i}^* + \varepsilon_{t,i} - \varepsilon_{t,{i-1}}
 $$
 
-where $r_{t,i}^*$ is the log return of the true price process. Then the existence of the Micro-structure noise implies that equation (1) is not a consistent estimator of the true unobserved volatility. To account for Micro-structure noise, the following assumptions can be considered:
+where r_{t,i}^* represents the log return of the true price process. The presence of microstructure noise implies that $RV_t^{(all)}$ is not a consistent estimator of the true unobserved volatility.
+
+To account for Micro-structure noise, the following assumptions can be considered:
 
 1. In the case of IID Noise Structure:
    - $E(\varepsilon) = 0$
@@ -106,9 +112,10 @@ where $r_{t,i}^*$ is the log return of the true price process. Then the existenc
 3. $V_{t,i} = \varepsilon_{t,i} - \varepsilon_{t,{i-1}}$ is constant.
 4. Noise is independent of the price process.
 
-If the data is contaminated by Micro-Noise Structure, then RV is not a consistent estimator of the Integrated variance. Hence, Micro-Structure Noise Bias exists. The mathematical explanation of Micro-Structure Noise Bias is presented in Appendix B.
+If the data is contaminated by Micro-Noise Structure, then RV is not a consistent estimator of the true variance. Hence, Micro-Structure Noise Bias exists.
 
-## Data Sourcing
+#### Calendar Time Sampling
+
 
 [bitcoincharts.com][4] offers
  
@@ -139,15 +146,20 @@ Andersen, T. G., Bollerslev, T., & Diebold, F. X. (2005). Roughing It Up: Includ
 
 Duong, D., & Swanson, N. R. (2011). Volatility in discrete and continuous-time models: A survey with new evidence on large and small jumps. In Missing data methods: Time-series methods and applications (Vol. 27, pp. 179-233). Emerald Group Publishing Limited.
 
+Andersen, T. G., Bollerslev, T., Diebold, F. X., & Ebens, H. (2001). The distribution of realized stock return volatility. Journal of financial economics, 61(1), 43-76.
+
 McAleer, M., Medeiros, M. C. (2008). Realized volatility: A review. Econometric Reviews, 27(1-3), 10-45.
 
+Ait-Sahalia, Y., Yu, J. (2008). High frequency market microstructure noise estimates and liquidity measures (No. w13825). National Bureau of Economic Research.
+
 [1]: https://example.com/andersen-2008.pdf
-[2]: https://example.com/andersen-2008.pdf](https://www.sas.upenn.edu/~fdiebold/papers/paper50/abd071102.pdf
+[2]: https://www.sas.upenn.edu/~fdiebold/papers/paper50/abd071102.pdf
 [3]: https://www.chicagofed.org/-/media/publications/working-papers/2008/wp2008-14-pdf.pdf
 [4]: bitcoincharts.com
 [5]: http://public.econ.duke.edu/~boller/Published_Papers/abcd_hand_06.pdf
 [6]: https://www.econ.puc-rio.br/uploads/adm/trabalhos/files/td531.pdf
 [7]: https://deliverypdf.ssrn.com/delivery.php?ID=677119021086096013109002116117123088095008049065074002106017127113127117012041003020017039115082104096066071054002066122116087083123002118031067001003122084095121007007117009027001110117073087082&EXT=pdf&INDEX=TRUE
 [8]: https://deliverypdf.ssrn.com/delivery.php?ID=641117074119118074094029091091090024016073027027075062101005089022078127102114127011096100063045053098009090094096104027099029059021009023036089082101027094068017055042007104067113000100023002119005085029096069093124093080112003084111100096066071&EXT=pdf&INDEX=TRUE
-
+[9]: https://www.sas.upenn.edu/~fdiebold/papers/paper41/abde.pdf
+[10]: https://www.nber.org/system/files/working_papers/w13825/w13825.pdf
 
