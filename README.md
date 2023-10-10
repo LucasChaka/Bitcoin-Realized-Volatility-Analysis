@@ -122,29 +122,20 @@ To estimate volatility in a financial time series, it is recommended to use an *
 
 Suppose there are intervals in a day, denoted as $0=\tau_0<\tau_1<.....<\tau_M=1$, and the length of the equidistant sub-intervals is represented as $\delta_{i,{M_t}}=\tau_i-\tau_{i-1}$. As $\delta_{i,{M_t}}$ approaches zero, the unobserved volatility in a continuous-time process, $\int_{\tau_{i-1}}^{\tau_i} \sigma(t+\tau)d\tau$, becomes a measure of true volatility. According to [Zhang, L., Mykland, P. A., Ait-Sahalia, Y. (2005)][12], when the observed price process includes both the true underlying price process and microstructure noise, it is shown that RV will be overwhelmed by the noise, leading to biased estimation. Therefore, it may be optimal to sample less frequently. However, here is the paradox: the lower the sampling frequency, the less RV converges to the true unobserved volatility. For example, shifting from 1-minute equidistant sampling to 1-hour equidistant sampling results in a reduced convergence to true unobserved volatility.
 
+The question at hand is determining the **optimal** frequency for data sampling. There are several options one can choose from; calendar time sampling, transaction time sampling, business time sampling and tick by tick sampling, which account in minimizing the microstructure noise bias. Although the above sampling techniques help minimize bias, other better ways account for a bias-variance trade-off such as sparse sampling, a method to 
+find optimal frequency by minimizing Mean-Squared-Error (MSE), or to first sample the intervals equidistantly and determine optimal MSE. 
 
 
-
-In a day, consider dividing time into \(0=\tau_0<\tau_1<.....<\tau_M=1\) intervals. The length of these equidistant sub-intervals is denoted as \(\delta_{i,{M_t}}=\tau_i-\tau_{i-1}\). As \(\delta_{i,{M_t}}\) approaches zero, it defines the integrated volatility, \(\int_{\tau_{i-1}}^{\tau_i} \sigma(t+\tau)d\tau\), representing true volatility.
-
-However, when observed prices include micro-structure noise alongside the true underlying price process, it becomes evident that Realized Volatility (RV) can be dominated by this noise, as highlighted by [huang2013forecasting]\[1\]. Consequently, it might be more effective to sample less frequently than in the absence of noise.
-
-Additionally, as noted by [zhang2005tale]\[2\], realized volatility doesn't converge to true volatility as the sampling frequency increases, for example, from 5 minutes to an hour. This raises the question: What is the optimal sampling frequency?
-
-These considerations emphasize the importance of selecting the right sampling frequency when dealing with high-frequency data contaminated by micro-structure noise.
-
+###for calander time sampling
+###link 12 for the 5 minute
+###make the title somethng like "Bitcoin realized volatility and hetrogenous market hypothesis" and divide the section n two big sections, section 1 talks about RV and 2 talks about the hypothesis
 
 
 
 
 
 
-
-
-
-
-
-
+### Data Set
 [bitcoincharts.com][4] offers
  
  The dataset covered a significant timeframe, ranging from January 8<sup>th</sup>, 2014, to March 14<sup>th</sup>, 2021. Notably, the data is continually refreshed, ensuring that the code can access the most current insights whenever it is executed.
@@ -184,6 +175,8 @@ Bandi, F. M. Russell, J. R., (2004). Microstructure noise, realized volatility, 
 
 Zhang, L., Mykland, P. A., At-Sahalia, Y. (2005). A tale of two time scales: Determining integrated volatility with noisy high-frequency data. Journal of the American Statistical Association, 100(472), 1394-1411.
 
+Liu, L. Y., Patton, A. J., & Sheppard, K. (2015). Does anything beat 5-minute RV? A comparison of realized measures across multiple asset classes. Journal of Econometrics, 187(1), 293-311.
+
 [1]: https://example.com/andersen-2008.pdf
 [2]: https://www.sas.upenn.edu/~fdiebold/papers/paper50/abd071102.pdf
 [3]: https://www.chicagofed.org/-/media/publications/working-papers/2008/wp2008-14-pdf.pdf
@@ -195,4 +188,5 @@ Zhang, L., Mykland, P. A., At-Sahalia, Y. (2005). A tale of two time scales: D
 [9]: https://www.sas.upenn.edu/~fdiebold/papers/paper41/abde.pdf
 [10]: https://www.nber.org/system/files/working_papers/w13825/w13825.pdf
 [11]: http://repec.org/esLATM04/up.3725.1082044351.pdf
+[12]: https://www.sciencedirect.com/science/article/abs/pii/S0304407615000329
 [12]: https://www.princeton.edu/~yacine/twoscales.pdf
