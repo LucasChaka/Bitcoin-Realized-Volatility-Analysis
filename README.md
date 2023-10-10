@@ -100,21 +100,47 @@ $$
 
 where r_{t,i}^* represents the log return of the true price process. The presence of microstructure noise implies that $RV_t^{(all)}$ is not a consistent estimator of the true unobserved volatility.
 
-To account for Micro-structure noise, the following assumptions can be considered:
+To account for microstructure noise, the following assumptions can be considered:
 
-1. In the case of IID Noise Structure:
+1. In the case of IID noise structure:
    - $E(\varepsilon) = 0$
 
-2. In the case of Dependent Noise Structure:
+2. In the case of dependent noise structure:
    - $E(\varepsilon) = 0$
    - stationary-and-is-exponentially-declining as the time intervals increase
 
 3. $V_{t,i} = \varepsilon_{t,i} - \varepsilon_{t,{i-1}}$ is constant.
 4. Noise is independent of the price process.
 
-If the data is contaminated by Micro-Noise Structure, then RV is not a consistent estimator of the true variance. Hence, Micro-Structure Noise Bias exists.
+If the data is contaminated by microstructure noise, then RV is not a consistent estimator of the true variance. Hence, microstructure noise bias exists.
 
 #### Calendar Time Sampling
+
+In addition to the microstructure noise bias, estimating tick-by-tick price series entails accumulations of noise that affects the variance of the estimator; which leads to a bias/variance trade-off in the estimation process([Bandi, F. M. Russell, J. R., (2004)][11]). 
+
+Suppose in a day there are $0=\tau_0<\tau_1<.....<\tau_M=1$ intervals, and the length of the equi-distant sub-intervals is taken as $\delta_{i,{M_t}}=\tau_i-\tau_{i-1}$. As $\delta_{i,{M_t}}$ approaches zero, then the integrated volatility, $\int_{\tau_{i-1}}^{\tau_i} \sigma(t+\tau)d\tau$, is the measure of true volatility. According to \textcite{huang2013forecasting} when the observed price process is the true underlying price process plus micro-structure noise, it is shown that RV will be overwhelmed by the noise. Therefore, it may be optimal to sample less frequently than is the case in the absence of noise\footnote{\textcite{huang2013forecasting}, p.1}. Also according to \textcite{zhang2005tale}, the realized volatility does not converge to the true volatility as the sampling frequency increases, let's say from 5 minutes to an hour. The question now is what is the optimal frequency to sample.
+
+
+
+
+In a day, consider dividing time into \(0=\tau_0<\tau_1<.....<\tau_M=1\) intervals. The length of these equidistant sub-intervals is denoted as \(\delta_{i,{M_t}}=\tau_i-\tau_{i-1}\). As \(\delta_{i,{M_t}}\) approaches zero, it defines the integrated volatility, \(\int_{\tau_{i-1}}^{\tau_i} \sigma(t+\tau)d\tau\), representing true volatility.
+
+However, when observed prices include micro-structure noise alongside the true underlying price process, it becomes evident that Realized Volatility (RV) can be dominated by this noise, as highlighted by [huang2013forecasting]\[1\]. Consequently, it might be more effective to sample less frequently than in the absence of noise.
+
+Additionally, as noted by [zhang2005tale]\[2\], realized volatility doesn't converge to true volatility as the sampling frequency increases, for example, from 5 minutes to an hour. This raises the question: What is the optimal sampling frequency?
+
+These considerations emphasize the importance of selecting the right sampling frequency when dealing with high-frequency data contaminated by micro-structure noise.
+
+
+
+
+
+
+
+
+
+
+
 
 
 [bitcoincharts.com][4] offers
@@ -152,6 +178,8 @@ McAleer, M., Medeiros, M. C. (2008). Realized volatility: A review. Econometric 
 
 Ait-Sahalia, Y., Yu, J. (2008). High frequency market microstructure noise estimates and liquidity measures (No. w13825). National Bureau of Economic Research.
 
+Bandi, F. M. Russell, J. R., (2004). Microstructure noise, realized volatility, and optimal sampling. In Econometric Society 2004 Latin American Meetings (No. 220). Econometric Society.
+
 [1]: https://example.com/andersen-2008.pdf
 [2]: https://www.sas.upenn.edu/~fdiebold/papers/paper50/abd071102.pdf
 [3]: https://www.chicagofed.org/-/media/publications/working-papers/2008/wp2008-14-pdf.pdf
@@ -162,4 +190,4 @@ Ait-Sahalia, Y., Yu, J. (2008). High frequency market microstructure noise estim
 [8]: https://deliverypdf.ssrn.com/delivery.php?ID=641117074119118074094029091091090024016073027027075062101005089022078127102114127011096100063045053098009090094096104027099029059021009023036089082101027094068017055042007104067113000100023002119005085029096069093124093080112003084111100096066071&EXT=pdf&INDEX=TRUE
 [9]: https://www.sas.upenn.edu/~fdiebold/papers/paper41/abde.pdf
 [10]: https://www.nber.org/system/files/working_papers/w13825/w13825.pdf
-
+[11]: http://repec.org/esLATM04/up.3725.1082044351.pdf
