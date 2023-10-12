@@ -131,6 +131,7 @@ find optimal frequency by minimizing Mean-Squared-Error (MSE), or to first sampl
 ###make the title somethng like "Bitcoin realized volatility and hetrogenous market hypothesis" and divide the section n two big sections, section 1 talks about RV and 2 talks about the hypothesis
 
 
+####conda install -c asmeurer rpy2
 
 
 
