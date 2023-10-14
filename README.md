@@ -150,10 +150,11 @@ where $k(x)$ for $x \in [0, 1]$ is a non-stochastic weight function such that th
 
 
 
+#### **Figure 1: Bitcoin Flat-Topped Kernel Based Realized Volatility**
 
+![Bitcoin Flat-Topped Kernel-Based Realized Volatility](https://github.com/LucasChaka/Bitcoin-Realized-Volatility-Analysis/assets/140816619/3fbd8ba3-6442-4260-a01c-f0e0c7bbe321)
 
-
-
+Source: [Python Codes.gitignore][1]
 
 
 ###for calander time sampling
