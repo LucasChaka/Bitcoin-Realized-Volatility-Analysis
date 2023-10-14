@@ -125,7 +125,35 @@ Suppose there are intervals in a day, denoted as $0=\tau_0<\tau_1<.....<\tau_M=1
 The question at hand is determining the **optimal** frequency for data sampling. There are several options one can choose from; calendar time sampling, transaction time sampling, business time sampling and tick by tick sampling, which account in minimizing the microstructure noise bias. Although the above sampling techniques help minimize bias, other better ways account for a bias-variance trade-off such as sparse sampling, a method to 
 find optimal frequency by minimizing Mean-Squared-Error (MSE), or to first sample the intervals equidistantly and determine optimal MSE. 
 
-Among the several options that were presented one such recommendation that accounts for both the microstructure bias and the bias/variance trade-off is the Kernel based RV estimators. 
+Among several options presented, one recommendation that addresses both microstructure bias and the bias/variance trade-off is Kernel-based RV estimators. [Hansen et al. (2006)][14] and [Barndorff et al. (2008)][13] have extensively explored the topic of optimal sampling and Kernel-based RV estimators, which account for both issues raised in estimating RV.
+
+The first estimator, proposed by [Hansen et al. (2006)][14], is an auto-correlation corrected RV:
+
+$$
+{RV_t^{(HL)}=RV_t^{(all)}+2\sum_{h=1}^H (M/M-h)\hat{\gamma}_h}
+$$
+
+where
+
+$\hat{\gamma}_h=\frac{M}{M-h}\sum_{j=1}^{(M-h)}r_{t,j}r_{j+h}$
+
+
+Here $ h=E(RV_t^{(all)}|I_t)\ $ and $ H=1 $.
+
+This estimator under the assumptions of IID noise Structure was found to be unbiased but inconsistent. Therefore, [Barndor et al (2008)][13] proposed the flat-topped kernel estimator based on $r_{t,i} = r_{t,i}^* + \varepsilon_{t,i} - \varepsilon_{t,{i-1}}$:
+
+$RV_t^{(BHLS)} = RV_t^{(all)} + \sum_{h=1}^H K\left(\frac{h-1}{H}\right) \left(\hat{\gamma}_h + \hat{\gamma}_{-h}\)$
+
+where \(k(x)\) for \(x \in [0, 1]\) is a non-stochastic weight function such that the Kernel parameters are \(k(0) = 1\) and \(k(1) = 0\). The analysis for the Kernel-based RV estimator employed in this project is based on \(RV_t^{(BHLS)}\).
+
+
+
+
+
+
+
+
+
 
 
 ###for calander time sampling
@@ -180,6 +208,10 @@ Zhang, L., Mykland, P. A., At-Sahalia, Y. (2005). A tale of two time scales: D
 
 Liu, L. Y., Patton, A. J., & Sheppard, K. (2015). Does anything beat 5-minute RV? A comparison of realized measures across multiple asset classes. Journal of Econometrics, 187(1), 293-311.
 
+Barndorff‐Nielsen, O. E., Hansen, P. R., Lunde, A., & Shephard, N. (2008). Designing realized kernels to measure the ex post variation of equity prices in the presence of noise. Econometrica, 76(6), 1481-1536.
+
+Hansen, P. and Lunde, A. (2006). Realized variance and market microstructure noise. Journal of Business and Economic Statistics, 24, 127-218.
+
 [1]: https://example.com/andersen-2008.pdf
 [2]: https://www.sas.upenn.edu/~fdiebold/papers/paper50/abd071102.pdf
 [3]: https://www.chicagofed.org/-/media/publications/working-papers/2008/wp2008-14-pdf.pdf
@@ -193,3 +225,5 @@ Liu, L. Y., Patton, A. J., & Sheppard, K. (2015). Does anything beat 5-minute RV
 [11]: http://repec.org/esLATM04/up.3725.1082044351.pdf
 [12]: https://www.sciencedirect.com/science/article/abs/pii/S0304407615000329
 [12]: https://www.princeton.edu/~yacine/twoscales.pdf
+[13]: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=620203
+[14]: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=506542
