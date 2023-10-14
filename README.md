@@ -135,20 +135,20 @@ $$
 
 where
 
-$$
+```math
 \hat{\gamma}_h = \frac{M}{M-h}\sum_{j=1}^{(M-h)}r_{t,j}r_{j+h}
-$$
+```
+
 
 Here, $h = E(RV_t^{(all)}|I_t)$ and $H = 1$.
 
 This estimator, under the assumptions of IID noise structure, was found to be unbiased but inconsistent. Therefore, [Barndorff et al. (2008)][13] proposed the flat-topped kernel estimator based on $r_{t,i} = r_{t,i}^* + \varepsilon_{t,i} - \varepsilon_{t,i-1}$:
 
-$$
-RV_t^{(BHLS)} = RV_t^{(all)} + \sum_{h=1}^H K\left(\frac{h-1}{H}\right) \left(\hat{\gamma}_h + \hat{\gamma}_{-h}\right)
-$$
+```math
+RV_t^{(BHLS)}=RV_t^{(all)}+\sum_{h=1}^H K(h-1/H). (\hat{\gamma}_h+\hat{\gamma}_{-h}),
+```
 
 where $k(x)$ for $x \in [0, 1]$ is a non-stochastic weight function such that the Kernel parameters are $k(0) = 1$ and $k(1) = 0$. The analysis for the Kernel-based RV estimator employed in this project is based on $RV_t^{(BHLS)}$.
-
 
 
 
