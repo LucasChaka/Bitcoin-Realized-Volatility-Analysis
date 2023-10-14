@@ -130,24 +130,24 @@ Among several options presented, one recommendation that addresses both microstr
 The first estimator, proposed by [Hansen et al. (2006)][14], is an auto-correlation corrected RV:
 
 $$
-{RV_t^{(HL)}=RV_t^{(all)}+2\sum_{h=1}^H (M/M-h)\hat{\gamma}_h}
+RV_t^{(HL)} = RV_t^{(all)} + 2\sum_{h=1}^H \frac{M}{M-h}\hat{\gamma}_h
 $$
 
 where
 
 $$
-{\hat{\gamma}_h=\frac{M}{M-h}\sum_{j=1}^{(M-h)}r_{t,j}r_{j+h}}
+\hat{\gamma}_h = \frac{M}{M-h}\sum_{j=1}^{(M-h)}r_{t,j}r_{j+h}
 $$
 
+Here, $h = E(RV_t^{(all)}|I_t)$ and $H = 1$.
 
-Here $ h=E(RV_t^{(all)}|I_t)\ $ and $ H=1 $.
+This estimator, under the assumptions of IID noise structure, was found to be unbiased but inconsistent. Therefore, [Barndorff et al. (2008)][13] proposed the flat-topped kernel estimator based on $r_{t,i} = r_{t,i}^* + \varepsilon_{t,i} - \varepsilon_{t,i-1}$:
 
-This estimator under the assumptions of IID noise Structure was found to be unbiased but inconsistent. Therefore, [Barndor et al (2008)][13] proposed the flat-topped kernel estimator based on $r_{t,i} = r_{t,i}^* + \varepsilon_{t,i} - \varepsilon_{t,{i-1}}$:
+$$
+RV_t^{(BHLS)} = RV_t^{(all)} + \sum_{h=1}^H K\left(\frac{h-1}{H}\right) \left(\hat{\gamma}_h + \hat{\gamma}_{-h}\right)
+$$
 
-$RV_t^{(BHLS)} = RV_t^{(all)} + \sum_{h=1}^H K\left(\frac{h-1}{H}\right) \left(\hat{\gamma}_h + \hat{\gamma}_{-h}\)$
-
-where \(k(x)\) for \(x \in [0, 1]\) is a non-stochastic weight function such that the Kernel parameters are \(k(0) = 1\) and \(k(1) = 0\). The analysis for the Kernel-based RV estimator employed in this project is based on \(RV_t^{(BHLS)}\).
-
+where $k(x)$ for $x \in [0, 1]$ is a non-stochastic weight function such that the Kernel parameters are $k(0) = 1$ and $k(1) = 0$. The analysis for the Kernel-based RV estimator employed in this project is based on $RV_t^{(BHLS)}$.
 
 
 
