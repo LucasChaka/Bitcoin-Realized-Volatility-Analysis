@@ -114,7 +114,7 @@ To account for microstructure noise, the following assumptions can be considered
 
 If the data is contaminated by microstructure noise, then RV is not a consistent estimator of the true variance. Hence, microstructure noise bias exists.
 
-#### Calendar Time Sampling
+#### Optimal Sampling
 
 In addition to the microstructure noise bias, estimating tick-by-tick price series entails the accumulation of noise that affects the estimator's variance. This results in a bias/variance trade-off during the estimation process ([Bandi, F. M. Russell, J. R., (2004)][11]). The bias-variance trade-off refers to the relationship between the bias and variance of an estimator. In the context of volatility estimation, bias represents the difference between the expected value of the estimator and the true value of the volatility. On the other hand, variance measures the variability of the estimator's values around its expected value.
 
@@ -124,6 +124,8 @@ Suppose there are intervals in a day, denoted as $0=\tau_0<\tau_1<.....<\tau_M=1
 
 The question at hand is determining the **optimal** frequency for data sampling. There are several options one can choose from; calendar time sampling, transaction time sampling, business time sampling and tick by tick sampling, which account in minimizing the microstructure noise bias. Although the above sampling techniques help minimize bias, other better ways account for a bias-variance trade-off such as sparse sampling, a method to 
 find optimal frequency by minimizing Mean-Squared-Error (MSE), or to first sample the intervals equidistantly and determine optimal MSE. 
+
+Among the several options that were presented one such recommendation that accounts for both the microstructure bias and the bias/variance trade-off is the Kernel based RV estimators. 
 
 
 ###for calander time sampling
