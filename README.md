@@ -135,7 +135,9 @@ $$
 
 where
 
-$\hat{\gamma}_h=\frac{M}{M-h}\sum_{j=1}^{(M-h)}r_{t,j}r_{j+h}$
+$$
+{\hat{\gamma}_h=\frac{M}{M-h}\sum_{j=1}^{(M-h)}r_{t,j}r_{j+h}}
+$$
 
 
 Here $ h=E(RV_t^{(all)}|I_t)\ $ and $ H=1 $.
