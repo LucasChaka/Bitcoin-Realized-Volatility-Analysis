@@ -148,7 +148,7 @@ RV_t^{(BHLS)}=RV_t^{(all)}+\sum_{h=1}^H K(h-1/H). (\hat{\gamma}_h+\hat{\gamma}_{
 
 where $k(x)$ for $x \in [0, 1]$ is a non-stochastic weight function such that the Kernel parameters are $k(0) = 1$ and $k(1) = 0$. The Kernel-based RV estimator ($RV_t^{(BHLS)}$) is employed in this project, which is an unbiased and consistent estimator.
 
-
+### Visualizing Bitcoin Realized Volatility
 
 #### **Figure 1: Bitcoin Flat-Topped Kernel Based Realized Volatility**
 
