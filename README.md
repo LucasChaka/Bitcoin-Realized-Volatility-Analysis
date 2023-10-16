@@ -13,8 +13,13 @@ Section 1
    - Optimal Sampling
 - Bitcoin Realized Volatility
    - Bitcoin Daily Price Data Over Time
+Section 2
 - HAR-RV Model for Bitcoin
 - Results and Conclusion
+Section 3
+- Limitation and Further Considerations
+
+
 
 ## Analysis Overview
 
@@ -121,14 +126,13 @@ If the data is contaminated by microstructure noise, then RV is not a consistent
 
 ### Optimal Sampling
 
-In addition to the microstructure noise bias, estimating tick-by-tick price series entails the accumulation of noise that affects the estimator's variance. This results in a bias/variance trade-off during the estimation process ([Bandi, F. M. Russell, J. R., (2004)][11]). The bias-variance trade-off refers to the relationship between the bias and variance of an estimator. In the context of volatility estimation, bias represents the difference between the expected value of the estimator and the true value of the volatility. On the other hand, variance measures the variability of the estimator's values around its expected value.
+In addition to microstructure noise bias, the estimation of tick-by-tick price series entails the accumulation of noise that affects the estimator's variance. This results in a bias/variance trade-off during the estimation process ([Bandi, F. M. Russell, J. R., (2004)][11]). The bias-variance trade-off refers to the relationship between the bias and variance of an estimator. In the context of volatility estimation, bias represents the difference between the expected value of the estimator and the true value of the volatility. On the other hand, variance measures the variability of the estimator's values around its expected value.
 
 To estimate volatility in a financial time series, it is recommended to use an **optimal** equidistant sampling scheme where the intervals between the ticks are evenly spaced. Here's why:
 
 Suppose there are intervals in a day, denoted as $0=\tau_0<\tau_1<.....<\tau_M=1$, and the length of the equidistant sub-intervals is represented as $\delta_{i,{M_t}}=\tau_i-\tau_{i-1}$. As $\delta_{i,{M_t}}$ approaches zero, the unobserved volatility in a continuous-time process, $\int_{\tau_{i-1}}^{\tau_i} \sigma(t+\tau)d\tau$, becomes a measure of true volatility. According to [Zhang, L., Mykland, P. A., Ait-Sahalia, Y. (2005)][12], when the observed price process includes both the true underlying price process and microstructure noise, it is shown that RV will be overwhelmed by the noise, leading to biased estimation. Therefore, it may be optimal to sample less frequently. However, here is the paradox: the lower the sampling frequency, the less RV converges to the true unobserved volatility. For example, shifting from 1-minute equidistant sampling to 1-hour equidistant sampling results in a reduced convergence to true unobserved volatility.
 
-The question at hand is determining the **optimal** frequency for data sampling. There are several options one can choose from; calendar time sampling, transaction time sampling, business time sampling and tick by tick sampling, which account in minimizing the microstructure noise bias. Although the above sampling techniques help minimize bias, other better ways account for a bias-variance trade-off such as sparse sampling, a method to 
-find optimal frequency by minimizing Mean-Squared-Error (MSE), or to first sample the intervals equidistantly and determine optimal MSE. However, one recommendation that addresses both microstructure bias and the bias/variance trade-off is Kernel-based RV estimators. [Hansen et al. (2006)][14] and [Barndorff et al. (2008)][13] have extensively explored the topic of optimal sampling and Kernel-based RV estimators, which account for both issues raised in estimating RV.
+The question at hand is determining the optimal frequency for data sampling. There are several options one can choose from: calendar time sampling, transaction time sampling, business time sampling, and tick-by-tick sampling, all of which aim to minimize microstructure noise bias. Although the above sampling techniques help minimize bias, other approaches account for a bias-variance trade-off, such as sparse sampling, a method to find the optimal frequency by minimizing Mean-Squared-Error (MSE), or first sampling the intervals equidistantly and determining optimal MSE. However, one recommendation that addresses both microstructure bias and the bias/variance trade-off is Kernel-based RV estimators. Additionally, in the estimation process of a Kernel based estimator, a 5-minute equidistant interval is employed as a benchmark. According to [Liu, L. Y., Patton, A. J., & Sheppard, K. (2015)][12], when 5-minute realized volatility (RV) is used as the benchmark of RV estimation, there is little evidence to suggest that it is significantly outperformed by any other measures in terms of estimation accuracy while addressing the previously mentioned estimation challenges. [Hansen et al. (2006)][14] and [Barndorff et al. (2008)][13] have extensively explored the topic of optimal sampling and Kernel-based RV estimators, addressing both issues in estimating RV.
 
 The first estimator, proposed by [Hansen et al. (2006)][14], is an auto-correlation corrected RV:
 
