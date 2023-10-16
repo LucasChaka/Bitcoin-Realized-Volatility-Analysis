@@ -12,6 +12,7 @@ Section 1
    - Micro-Structure Noise
    - Optimal Sampling
 - Bitcoin Realized Volatility
+   - Bitcoin Daily Price Data Over Time
 - HAR-RV Model for Bitcoin
 - Results and Conclusion
 
