@@ -3,11 +3,15 @@
 The following is an in-depth exploration of the fascinating world of Bitcoin price volatility. This project dives deep into the dynamics of Bitcoin's price movements, exploring the Hetrogenous Autoregressive Realized Volatility (HAR-RV) model and it's real-world applications to this captivating digital currency.
 
 ## Table of Contents
+Section 1
 - Introduction
-- Data Sourcing
-- Downloading Data using API's
-- Financial Asset Returns vs Bitcoin Return Stylized Facts
-- The Theory Behind the Model
+- Measuring and Defining Volatility
+   - Discrete-time Process
+   - Continuous-time Process
+- Overcoming Micro-Structure Noise Effect with Calendar Time Sampling
+   - Micro-Structure Noise
+   - Optimal Sampling
+- Bitcoin Realized Volatility
 - HAR-RV Model for Bitcoin
 - Results and Conclusion
 
@@ -78,9 +82,9 @@ $$
 The integrated volatility, denoted as $\int_0^1 \sigma(t+\tau)d\tau$, serves as a measure of volatility that has been adjusted against a portfolio return over time ([McAleer (2008)][6]).
 
 
-### Overcoming Micro-Structure Noise Effect with Calendar Time Sampling
+## Overcoming Micro-Structure Noise Effect with Calendar Time Sampling
 
-#### Micro-Structure Noise
+### Micro-Structure Noise
 
 When prices are observed tick-by-tick, their values deviate from their 'efficient values' due to various market frictions, such as price discreteness, infrequent trading, or bid-ask bounce effects. This phenomenon is commonly referred to in finance and econometric literature as the microstructure noise effect. According to [Anderson et al. (2001)][9], these market microstructure features generally have little impact when analyzing longer-horizon interdaily returns (e.g., in an hourly format). However, they can significantly distort the distributional properties of high-frequency intraday returns when measured tick-by-tick.
 
@@ -114,7 +118,7 @@ To account for microstructure noise, the following assumptions can be considered
 
 If the data is contaminated by microstructure noise, then RV is not a consistent estimator of the true variance. Hence, microstructure noise bias exists.
 
-#### Optimal Sampling
+### Optimal Sampling
 
 In addition to the microstructure noise bias, estimating tick-by-tick price series entails the accumulation of noise that affects the estimator's variance. This results in a bias/variance trade-off during the estimation process ([Bandi, F. M. Russell, J. R., (2004)][11]). The bias-variance trade-off refers to the relationship between the bias and variance of an estimator. In the context of volatility estimation, bias represents the difference between the expected value of the estimator and the true value of the volatility. On the other hand, variance measures the variability of the estimator's values around its expected value.
 
