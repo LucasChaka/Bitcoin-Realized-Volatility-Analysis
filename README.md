@@ -170,10 +170,9 @@ where $k(x)$ for $x \in [0, 1]$ is a non-stochastic weight function such that th
 
 #### **Figure 1: Bitcoin Daily Price, BTC-EUR, 2014-2023**
 
-![Bitcoin Daily Price, Euro](https://github.com/LucasChaka/Bitcoin-Realized-Volatility-Analysis/assets/140816619/389a4e99-7ecd-413d-8aa2-8efc007299d8)
+![Fig 1_ Bitcoin Daily price, BTC-EUR](https://github.com/LucasChaka/Bitcoin-Realized-Volatility-Analysis/assets/140816619/955cce6b-14a5-4809-9730-acdcb0157124)
 
-
-Source: 
+Source: [Section 1_Python Code](example.txt)
 
 
 ### Bitcoin Return and Asset Return Styled Facts
