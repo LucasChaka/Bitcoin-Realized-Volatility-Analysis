@@ -175,7 +175,7 @@ where $k(x)$ for $x \in [0, 1]$ is a non-stochastic weight function such that th
 Source: [Section 1 - Python Code](Section%201_Python%20Code.ipynb)
 
 
-## Bitcoin Return and Asset Return Stylized Facts
+### Bitcoin Return and Asset Return Stylized Facts
 
 Financial returns exhibit generally accepted statistical characteristics. These stylized facts provide analysts with insights into how data on asset returns can be analyzed. Since there are several arguments that suggest Bitcoin behaves more like an asset than a currency (refer to [Baur, D. G., & Dimpfl, T. (2017)][15] and [Baur, D. G., & Dimpfl, T. (2021)][16]), it's worth analyzing whether it's worthwhile to estimate RV. The following are some common characteristics of asset returns:
 
@@ -183,8 +183,6 @@ Financial returns exhibit generally accepted statistical characteristics. These 
 - **Leptokurtic Distribution:** According to [Rydberg (2000)][18], the distribution of returns has tails that are heavier than the tails of a normal distribution. Most empirical findings for financial assets show that the distribution for daily returns is leptokurtic.
 - **Gain-Loss Asymmetry:** According to [Cont (2001)][17], one observes large draw-downs in asset prices and asset index values but not equally large upward movements. [Rydberg (2000)][18] also noted that there is evidence that the distribution of asset returns is slightly negatively skewed.
 - **Aggregational Gaussianity:** As the time scale (t) increases from intra-day to daily to weekly to monthly and so on, the returns distribution looks more like a normal distribution. As [Rydberg (2000)][18] puts it, "For decreasing sampling frequencies, the central limit law sets in, and the distribution of the log-returns tends toward a Gaussian law."
-
-### Figures
 
 #### **Figure 2(a): Bitcoin Hourly Autocorrelation function**
 ![Fig 2(a) Bitcoin Hourly Autocorrelation function](https://github.com/LucasChaka/Bitcoin-Realized-Volatility-Analysis/assets/140816619/ffeb4aa3-3b9b-4e4b-a53f-17f4b327c0fc)
@@ -222,43 +220,16 @@ Source: [Section 1 - Python Code](Section%201_Python%20Code.ipynb)
 
 The figures above illustrate how Bitcoin's returns exhibit characteristics similar to the stylized facts. In Figure 2(a), it can be observed that the autocorrelation function is significant for the majority of lags. Figure 2(b) reveals that, except for lags 1, 7, and 10, most lags are not significant. As the time scale (t) increases from daily to weekly or monthly, the significance decreases across all 10 lags, indicating the absence of autocorrelation. Furthermore, in Figure 3, it is noticable that the returns tend to approach a normal distribution as time (t) increases from hourly to daily to monthly. Notably, Figure 3(a) displays a leptokurtic distribution in the hourly interval. Thus, it can be concluded that aggregational Gaussianity is observed. The returns also exhibit negative skewness, suggesting gain-loss asymmetry. Additionally, Figure 4 illustrates volatility clustering, for example, around the 2018 and 2021-2022 time periods. Consequently, it can be assumed, for further analysis, that Bitcoin follows the behavior of other assets in its returns.
 
+### Bitcoin Realized volatility
 
-### Visualizing Bitcoin Realized Volatility
+Based on the flat-topped kernel based Realized volatility estimator explained above, the Bitcoin flat-topped RV estimator is depiced as follows: 
 
-#### **Figure 1: Bitcoin Flat-Topped Kernel Based Realized Volatility**
-
-![Bitcoin Flat-Topped Kernel-Based Realized Volatility](https://github.com/LucasChaka/Bitcoin-Realized-Volatility-Analysis/assets/140816619/3fbd8ba3-6442-4260-a01c-f0e0c7bbe321)
-
-Source: [Section 1_Python Code][Section 1_Python Code.ipynb]
-
-
-###for calander time sampling
-###link 12 for the 5 minute
-###make the title somethng like "Bitcoin realized volatility and hetrogenous market hypothesis" and divide the section n two big sections, section 1 talks about RV and 2 talks about the hypothesis
-
-
-####conda install -c asmeurer rpy2
-
-
-
-
-### Data Set
-
-
-
-
-### The R-Code
-
-### The equivalent Python code
-
-
-
-### The Theory of Sampling Irregularly Spaced Financial Data
-
-In financial markets, prices are observed at discrete and irregularly spaced time intervals. To estimate volatility in a financial time-series, it is recommended to use equidistant sampling schemes where the intervals between the ticks are evenly spaced. This helps minimize bias and variance in the estimation process, hence minimize the bias-variance trade off. The bias-variance trade-off refers to the relationship between the bias and variance of an estimator in statistical analysis. In the context of volatility estimation, such as realized volatility (RV), the bias represents the difference between the expected value of the estimator and the true value of the volatility. On the other hand, the variance measures the variability of the estimator's values around its expected value.
-
+#### **Fig 5: Bitcoin Realized Volatility**
+![Fig 5_ Bitcoin Realized Volatility](https://github.com/LucasChaka/Bitcoin-Realized-Volatility-Analysis/assets/140816619/b8a201dc-49e5-4348-bf88-5b3dba913985)
+Source: [Section 1 - Python Code](Section%201_Python%20Code.ipynb)
 
 ## Reference
+
 
 Andersen, T. G., Bollerslev, T., & Diebold, F. X. (2010). Parametric and nonparametric volatility measurement. In Handbook of financial econometrics: Tools and techniques (pp. 67-137). North-Holland.
 
