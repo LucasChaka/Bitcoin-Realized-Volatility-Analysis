@@ -175,9 +175,52 @@ where $k(x)$ for $x \in [0, 1]$ is a non-stochastic weight function such that th
 Source: [Section 1 - Python Code](Section%201_Python%20Code.ipynb)
 
 
-### Bitcoin Return and Asset Return Styled Facts
+## Bitcoin Return and Asset Return Stylized Facts
 
+Financial returns exhibit generally accepted statistical characteristics. These stylized facts provide analysts with insights into how data on asset returns can be analyzed. Since there are several arguments that suggest Bitcoin behaves more like an asset than a currency (refer to [Baur, D. G., & Dimpfl, T. (2017)][15] and [Baur, D. G., & Dimpfl, T. (2021)][16]), it's worth analyzing whether it's worthwhile to estimate RV. The following are some common characteristics of asset returns:
 
+- **Absence of Autocorrelations:** Autocorrelations of asset returns are often insignificant, except for very small intra-day time scales (mostly 20 minutes). [Cont (2001)][17]
+- **Leptokurtic Distribution:** According to [Rydberg (2000)][18], the distribution of returns has tails that are heavier than the tails of a normal distribution. Most empirical findings for financial assets show that the distribution for daily returns is leptokurtic.
+- **Gain-Loss Asymmetry:** According to [Cont (2001)][17], one observes large draw-downs in asset prices and asset index values but not equally large upward movements. [Rydberg (2000)][18] also noted that there is evidence that the distribution of asset returns is slightly negatively skewed.
+- **Aggregational Gaussianity:** As the time scale (t) increases from intra-day to daily to weekly to monthly and so on, the returns distribution looks more like a normal distribution. As [Rydberg (2000)][18] puts it, "For decreasing sampling frequencies, the central limit law sets in, and the distribution of the log-returns tends toward a Gaussian law."
+
+### Figures
+
+#### **Figure 2(a): Bitcoin Hourly Autocorrelation function**
+![Fig 2(a) Bitcoin Hourly Autocorrelation function](https://github.com/LucasChaka/Bitcoin-Realized-Volatility-Analysis/assets/140816619/ffeb4aa3-3b9b-4e4b-a53f-17f4b327c0fc)
+Source: [Section 1 - Python Code](Section%201_Python%20Code.ipynb)
+
+#### **Figure 2(b): Bitcoin Daily Autocorrelation function**
+![Fig 2(b) Bitcoin Daily Autocorrelation function](https://github.com/LucasChaka/Bitcoin-Realized-Volatility-Analysis/assets/140816619/6246ecfc-0c38-4361-aee8-8ddd93ba869a)
+Source: [Section 1 - Python Code](Section%201_Python%20Code.ipynb)
+
+#### **Figure 2(c): Bitcoin Weekly Autocorrelation function**
+![Fig 2(c) Bitcoin Weekly Autocorrelation function](https://github.com/LucasChaka/Bitcoin-Realized-Volatility-Analysis/assets/140816619/b80c9c7e-0e74-4b25-846e-b1857301c21c)
+Source: [Section 1 - Python Code](Section%201_Python%20Code.ipynb)
+
+#### **Figure 2(d): Bitcoin Monthly Autocorrelation function**
+![Fig 2(d) Bitcoin Monthly Autocorrelation function](https://github.com/LucasChaka/Bitcoin-Realized-Volatility-Analysis/assets/140816619/ce7fc122-9b19-4780-8474-230cb28f50b6)
+Source: [Section 1 - Python Code](Section%201_Python%20Code.ipynb)
+
+#### **Figure 3(a): Bitcoin Hourly Interval Distribution**
+![Fig 3(a) Bitcoin Hourly Interval Distribution](https://github.com/LucasChaka/Bitcoin-Realized-Volatility-Analysis/assets/140816619/1d50e887-1708-4f89-86c9-838f27090e21)
+Source: [Section 1 - Python Code](Section%201_Python%20Code.ipynb)
+
+#### **Figure 3(b): Bitcoin Daily Interval Distribution**
+![Fig 3(b) Bitcoin Daily Interval Distribution](https://github.com/LucasChaka/Bitcoin-Realized-Volatility-Analysis/assets/140816619/fe53fc38-5490-466f-97d9-f2867222b058)
+Source: [Section 1 - Python Code](Section%201_Python%20Code.ipynb)
+
+#### **Figure 3(c): Bitcoin Weekly Interval Distribution**
+![Fig 3(c) Bitcoin Weekly Interval Distribution](https://github.com/LucasChaka/Bitcoin-Realized-Volatility-Analysis/assets/140816619/f0eb0c15-74f6-4e03-9c95-b330602b0a2d)
+Source: [Section 1 - Python Code](Section%201_Python%20Code.ipynb)
+
+- **Volatility Clustering:** Different measures of volatility display positive autocorrelation over several days, quantifying the fact that high-volatility events tend to cluster in time. [Cont (2001)][17] also explained volatility clustering as large price variations that are more likely to be followed by large price variations.
+
+#### **Figure 4: Bitcoin Log return**
+![Fig 4_Bitcoin Log return](https://github.com/LucasChaka/Bitcoin-Realized-Volatility-Analysis/assets/140816619/a3ac831a-f8c5-4ff2-ad50-b920eab38a67)
+Source: [Section 1 - Python Code](Section%201_Python%20Code.ipynb)
+
+The above figures showcase how Bitcoin's returns exhibit characteristics similar to the stylized facts. In Figure 2 (2(a) and 2(b)), it can be observed that the autocorrelation function depicts significance in the majority of the lags. Figure 2(b) shows that, except in lags 1, 7, and 10, the majority of lags are not significant. As the time (t) increases from daily to weekly or monthly, the significance drops in all 10 lags, showcasing the absence of autocorrelation. Additionally, in Figure 3, it can be observed that the returns tend to approach a normal distribution as the time (t) increases from hourly to daily to monthly. Not only that, but also Figure 3(a) shows a leptokurtic distribution in the hourly interval. Therefore, it can be concluded that aggregational Gaussianity is observed. The returns also depict negative skewness, implying gain-loss symmetry. Additionally, Figure 4 shows the volatility clustering, for example, around the 2018 mark and the 2021-2022 mark.
 
 
 ### Visualizing Bitcoin Realized Volatility
@@ -243,6 +286,14 @@ Barndorff‐Nielsen, O. E., Hansen, P. R., Lunde, A., & Shephard, N. (2008). Des
 
 Hansen, P. and Lunde, A. (2006). Realized variance and market microstructure noise. Journal of Business and Economic Statistics, 24, 127-218.
 
+Baur, D. G., & Dimpfl, T. (2017). Realized bitcoin volatility. SSRN, 2949754, 1-26.
+
+Baur, D. G., & Dimpfl, T. (2021). The volatility of Bitcoin and its role as a medium of exchange and a store of value. Empirical Economics, 61(5), 2663-2683.
+
+Cont, R. (2001). Empirical properties of asset returns: stylized facts and statistical issues. Quantitative finance, 1(2), 223.
+
+Rydberg, T. H. (2000). Realistic statistical modelling of financial data. International Statistical Review, 68(3), 233-258.
+
 [1]: https://example.com/andersen-2008.pdf
 [2]: https://www.sas.upenn.edu/~fdiebold/papers/paper50/abd071102.pdf
 [3]: https://www.chicagofed.org/-/media/publications/working-papers/2008/wp2008-14-pdf.pdf
@@ -258,3 +309,7 @@ Hansen, P. and Lunde, A. (2006). Realized variance and market microstructure noi
 [12]: https://www.princeton.edu/~yacine/twoscales.pdf
 [13]: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=620203
 [14]: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=506542
+[15]: https://www.researchgate.net/publication/317994265_Realized_Bitcoin_Volatility
+[16]: https://link.springer.com/article/10.1007/s00181-020-01990-5
+[17]: http://rama.cont.perso.math.cnrs.fr/pdf/empirical.pdf
+[18]: https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1751-5823.2000.tb00329.x
