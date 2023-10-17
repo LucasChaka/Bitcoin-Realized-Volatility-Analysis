@@ -14,7 +14,8 @@ Section 1
 - Bitcoin Realized Volatility
    - Data
    - Bitcoin Daily Price Data Over Time
-   - Bitcoin Return and Asset Return Styled Facts 
+   - Bitcoin Return and Asset Return Styled Facts
+     
 Section 2
 - HAR-RV Model for Bitcoin
 - Results and Conclusion
@@ -159,6 +160,26 @@ RV_t^{(BHLS)}=RV_t^{(all)}+\sum_{h=1}^H K(h-1/H). (\hat{\gamma}_h+\hat{\gamma}_{
 
 where $k(x)$ for $x \in [0, 1]$ is a non-stochastic weight function such that the Kernel parameters are $k(0) = 1$ and $k(1) = 0$. The Kernel-based RV estimator ($RV_t^{(BHLS)}$) is employed in this project, which is an unbiased and consistent estimator.
 
+## Bitcoin Realized Volatility
+### Data
+
+[bitcoincharts.com][4] offers high-frequency tick-by-tick data from several cryptocurrency exchange platforms. Among the exchange rate platforms listed, Kraken holds the highest volume of Bitcoins traded. The dataset covers a significant timeframe, ranging from January 8th, 2014, to March 14th, 2021. Notably, the data is continually refreshed, ensuring that the code can access the most current insights whenever it is executed. The exchange rate is between Bitcoin and the Euro
+
+### Bitcoin Daily Price Data Over Time
+
+#### **Figure 1: Bitcoin Daily Price, BTC-EUR, 2014-2023**
+
+![Bitcoin Daily Price, Euro](https://github.com/LucasChaka/Bitcoin-Realized-Volatility-Analysis/assets/140816619/389a4e99-7ecd-413d-8aa2-8efc007299d8)
+
+
+Source: 
+
+
+### Bitcoin Return and Asset Return Styled Facts
+
+
+
+
 ### Visualizing Bitcoin Realized Volatility
 
 #### **Figure 1: Bitcoin Flat-Topped Kernel Based Realized Volatility**
@@ -179,11 +200,9 @@ Source: [Python Codes.gitignore][1]
 
 
 ### Data Set
-[bitcoincharts.com][4] offers
- 
- The dataset covered a significant timeframe, ranging from January 8<sup>th</sup>, 2014, to March 14<sup>th</sup>, 2021. Notably, the data is continually refreshed, ensuring that the code can access the most current insights whenever it is executed.
 
-For the purpose of data visualization, some data was initially obtained from Yahoo Finance! However, the project has evolved to sharpen its focus. Consequently, data from Yahoo Finance! will no longer be utilized. It's important to note that the analysis exclusively considers the BTC-EUR exchange rate.
+
+
 
 ### The R-Code
 
