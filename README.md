@@ -1,6 +1,6 @@
 # Bitcoin Realized Volatility Analysis 
 
-The following is an in-depth exploration of the fascinating world of Bitcoin price volatility. This project dives deep into the dynamics of Bitcoin's price movements, exploring the Hetrogenous Autoregressive Realized Volatility (HAR-RV) model and it's real-world applications to this captivating digital currency.
+The following is an in-depth exploration of the fascinating world of Bitcoin volatility. This project dives deep into the dynamics of Bitcoin's price movements, estimating its realized volatility in section 1 and exploring the Hetrogenous Autoregressive Realized Volatility (HAR-RV) model and it's real-world applications in section 2.
 
 ## Table of Contents
 Section 1
@@ -15,6 +15,7 @@ Section 1
    - Data
    - Bitcoin Daily Price Data Over Time
    - Bitcoin Return and Asset Return Styled Facts
+   - Bitcoin Realized volatility
      
 Section 2
 - HAR-RV Model for Bitcoin
