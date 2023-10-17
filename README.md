@@ -186,7 +186,7 @@ Source: [Section 1_Python Code](example.txt)
 
 ![Bitcoin Flat-Topped Kernel-Based Realized Volatility](https://github.com/LucasChaka/Bitcoin-Realized-Volatility-Analysis/assets/140816619/3fbd8ba3-6442-4260-a01c-f0e0c7bbe321)
 
-Source: [Python Codes.gitignore][1]
+Source: [Section 1_Python Code][Section 1_Python Code.ipynb]
 
 
 ###for calander time sampling
