@@ -1,9 +1,13 @@
+#The following is the code used to estimate the Flottopped Kernel based RV estimator.
+
 rm(list=ls())
 
 #Set Working Directory
 
 setwd("C:/Users/lucas/Desktop/github project")
 getwd()
+
+#The data is too large, therefore, it might be neccessary to increase the memory capacity of R
 
 memory.limit()
 
@@ -13,7 +17,7 @@ Bitcoin <- read.csv("Bitcoin.csv.gz", header = TRUE, sep = ",", quote = "\"", co
 
 head(Bitcoin)
 
-
+#install necessary packages
 install.packages("highfrequency")
 library(xts)
 library(zoo)
@@ -40,7 +44,7 @@ kv<-sqrt(rvKernel)
 
 head(kv)
 
-# Assuming 'xts_object' is your xts object
+# Export the new data set
 BitcoinRV <- as.data.frame(kv)
 
 write.csv(BitcoinRV, file = "BitcoinRV.csv")
