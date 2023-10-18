@@ -222,11 +222,13 @@ The figures above illustrate how Bitcoin's returns exhibit characteristics simil
 
 ### Bitcoin Realized volatility
 
-Based on the flat-topped kernel based Realized volatility estimator explained above, the Bitcoin flat-topped RV estimator is depiced as follows: 
+Based on the flat-topped kernel-based RV estimator explained above, the Bitcoin realized volatility is depicted as follows:
 
 #### **Fig 5: Bitcoin Realized Volatility**
 ![Fig 5_ Bitcoin Realized Volatility](https://github.com/LucasChaka/Bitcoin-Realized-Volatility-Analysis/assets/140816619/b8a201dc-49e5-4348-bf88-5b3dba913985)
 Source: [Section 1 - Python Code](Section%201_Python%20Code.ipynb)
+
+*Note: The estimation for the RV is conducted using the R package 'highfrequency.' Analysts can also use the same R package through the Python rpy2 package. However, I find it easier and more time-efficient to estimate the RV in R than in Python.*
 
 ## Reference
 
