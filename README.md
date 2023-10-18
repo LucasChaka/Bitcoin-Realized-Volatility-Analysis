@@ -181,37 +181,37 @@ Financial returns exhibit generally accepted statistical characteristics. These 
 
 #### **Figure 2(a): Bitcoin Hourly Autocorrelation function**
 ![Fig 2(a) Bitcoin Hourly Autocorrelation function](https://github.com/LucasChaka/Bitcoin-Realized-Volatility-Analysis/assets/140816619/ffeb4aa3-3b9b-4e4b-a53f-17f4b327c0fc)
-Source: [Section 1 - Python Code](Section%201_Python%20Code.ipynb)
+Source: [Python Code](Python%Code.ipynb)
 
 #### **Figure 2(b): Bitcoin Daily Autocorrelation function**
 ![Fig 2(b) Bitcoin Daily Autocorrelation function](https://github.com/LucasChaka/Bitcoin-Realized-Volatility-Analysis/assets/140816619/6246ecfc-0c38-4361-aee8-8ddd93ba869a)
-Source: [Section 1 - Python Code](Section%201_Python%20Code.ipynb)
+Source: [Python Code](Python%Code.ipynb)
 
 #### **Figure 2(c): Bitcoin Weekly Autocorrelation function**
 ![Fig 2(c) Bitcoin Weekly Autocorrelation function](https://github.com/LucasChaka/Bitcoin-Realized-Volatility-Analysis/assets/140816619/b80c9c7e-0e74-4b25-846e-b1857301c21c)
-Source: [Section 1 - Python Code](Section%201_Python%20Code.ipynb)
+Source: [Python Code](Python%Code.ipynb)
 
 #### **Figure 2(d): Bitcoin Monthly Autocorrelation function**
 ![Fig 2(d) Bitcoin Monthly Autocorrelation function](https://github.com/LucasChaka/Bitcoin-Realized-Volatility-Analysis/assets/140816619/ce7fc122-9b19-4780-8474-230cb28f50b6)
-Source: [Section 1 - Python Code](Section%201_Python%20Code.ipynb)
+Source: [Python Code](Python%Code.ipynb)
 
 #### **Figure 3(a): Bitcoin Hourly Interval Distribution**
 ![Fig 3(a) Bitcoin Hourly Interval Distribution](https://github.com/LucasChaka/Bitcoin-Realized-Volatility-Analysis/assets/140816619/1d50e887-1708-4f89-86c9-838f27090e21)
-Source: [Section 1 - Python Code](Section%201_Python%20Code.ipynb)
+Source: [Python Code](Python%Code.ipynb)
 
 #### **Figure 3(b): Bitcoin Daily Interval Distribution**
 ![Fig 3(b) Bitcoin Daily Interval Distribution](https://github.com/LucasChaka/Bitcoin-Realized-Volatility-Analysis/assets/140816619/fe53fc38-5490-466f-97d9-f2867222b058)
-Source: [Section 1 - Python Code](Section%201_Python%20Code.ipynb)
+Source: [Python Code](Python%Code.ipynb)
 
 #### **Figure 3(c): Bitcoin Weekly Interval Distribution**
 ![Fig 3(c) Bitcoin Weekly Interval Distribution](https://github.com/LucasChaka/Bitcoin-Realized-Volatility-Analysis/assets/140816619/f0eb0c15-74f6-4e03-9c95-b330602b0a2d)
-Source: [Section 1 - Python Code](Section%201_Python%20Code.ipynb)
+Source: [Python Code](Python%Code.ipynb)
 
 - **Volatility Clustering:** Different measures of volatility display positive autocorrelation over several days, quantifying the fact that high-volatility events tend to cluster in time. [Cont (2001)][17] also explained volatility clustering as large price variations that are more likely to be followed by large price variations.
 
 #### **Figure 4: Bitcoin Log return**
 ![Fig 4_Bitcoin Log return](https://github.com/LucasChaka/Bitcoin-Realized-Volatility-Analysis/assets/140816619/a3ac831a-f8c5-4ff2-ad50-b920eab38a67)
-Source: [Section 1 - Python Code](Section%201_Python%20Code.ipynb)
+Source: [Python Code](Python%Code.ipynb)
 
 The figures above illustrate how Bitcoin's returns exhibit characteristics similar to the stylized facts. In Figure 2(a), it can be observed that the autocorrelation function is significant for the majority of lags. Figure 2(b) reveals that, except for lags 1, 7, and 10, most lags are not significant. As the time scale (t) increases from daily to weekly or monthly, the significance decreases across all 10 lags, indicating the absence of autocorrelation. Furthermore, in Figure 3, it is noticable that the returns tend to approach a normal distribution as time (t) increases from hourly to daily to monthly. Notably, Figure 3(a) displays a leptokurtic distribution in the hourly interval. Thus, it can be concluded that aggregational Gaussianity is observed. The returns also exhibit negative skewness, suggesting gain-loss asymmetry. Additionally, Figure 4 illustrates volatility clustering, for example, around the 2018 and 2021-2022 time periods. Consequently, it can be assumed, for further analysis, that Bitcoin follows the behavior of other assets in its returns.
 
@@ -221,7 +221,7 @@ Based on the flat-topped kernel-based RV estimator explained above, the Bitcoin 
 
 #### **Fig 5: Bitcoin Realized Volatility**
 ![Fig 5_ Bitcoin Realized Volatility](https://github.com/LucasChaka/Bitcoin-Realized-Volatility-Analysis/assets/140816619/b8a201dc-49e5-4348-bf88-5b3dba913985)
-Source: [Section 1 - Python Code](Section%201_Python%20Code.ipynb)
+Source: [Python Code](Python%Code.ipynb), [Bitcoin Realized Kernel](Bitcoin%Realized%Kernel.R)
 
 *Note: The estimation for the RV is conducted using the R package 'highfrequency.' Analysts can also use the same R package through the Python rpy2 package. However, I find it easier and more time-efficient to estimate the RV in R than in Python.*
 
