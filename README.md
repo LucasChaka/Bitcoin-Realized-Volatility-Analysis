@@ -1,9 +1,15 @@
 # Bitcoin Realized Volatility Analysis 
 
-The following is an in-depth exploration of the fascinating world of Bitcoin volatility. This project dives deep into the dynamics of Bitcoin's price movements, estimating its realized volatility in section 1 and exploring models to forecast volatility and it's real-world applications in section 2.
+## Overview:
+
+The financial industry has seen remarkable advancements in technology, allowing for the collection and analysis of high-frequency financial data, particularly for understanding the dynamics of global markets. This project focuses on the estimation and modeling of volatility using the Realized Volatility (RV) estimator, with a specific emphasis on Bitcoin's price dynamics. Volatility, a critical risk metric in asset returns, is challenging to measure directly. The project employs the RV estimator, a non-parametric approach that quantifies volatility without relying on specific assumptions. It distinguishes between discrete-time and continuous-time processes to estimate realized volatility accurately.
+
+The presence of microstructure noise, which affects the observed prices, complicates volatility estimation. This project addresses microstructure noise bias and the bias/variance trade-off by exploring various data sampling techniques mathimatically. It highlights Kernel-based RV estimators as an optimal solution to minimize bias while achieving accurate estimation. The analysis uses high-frequency tick-by-tick data from cryptocurrency exchanges, with a focus on Bitcoin-Euro exchange rates. Various stylized facts of financial returns are presented, supporting the notion that Bitcoin behaves like an asset, emphasizing the need for RV estimation.
+
+Finally, Bitcoin's realized volatility is estimated using the Kernel-based RV estimator, providing insights into Bitcoin's price dynamics and highlighting moments of significant volatility.
 
 ## Table of Contents
-Section 1
+
 - Introduction
 - Measuring and Defining Volatility
    - Discrete-time Process
@@ -16,13 +22,7 @@ Section 1
    - Bitcoin Daily Price Data Over Time
    - Bitcoin Return and Asset Return Styled Facts
    - Bitcoin Realized volatility
-     
-Section 2
-
-
-Section 3
-- Limitation and Further Considerations
-
+- Conclusion     
 
 ## Introduction
 
@@ -101,13 +101,13 @@ $$
 P_{t,i} = P_{t,i}^* - \varepsilon_{t,i}
 $$
 
-where ε_{t,i} represents the microstructure noise and P_{t,i}^* is the true price process, then:
+where $ε_{t,i}$ represents the microstructure noise and $P_{t,i}^*$ is the true price process, then:
 
 $$
 r_{t,i} = r_{t,i}^* + \varepsilon_{t,i} - \varepsilon_{t,{i-1}}
 $$
 
-where r_{t,i}^* represents the log return of the true price process. The presence of microstructure noise implies that $RV_t^{(all)}$ is not a consistent estimator of the true unobserved volatility.
+where $r_{t,i}^*$ represents the log return of the true price process. The presence of microstructure noise implies that $RV_t^{(all)}$ is not a consistent estimator of the true unobserved volatility.
 
 To account for microstructure noise, the following assumptions can be considered:
 
@@ -224,6 +224,22 @@ Based on the flat-topped kernel-based RV estimator explained above, the Bitcoin 
 Source: [Python Code](Python%Code.ipynb), [Bitcoin Realized Kernel](Bitcoin%Realized%Kernel.R)
 
 *Note: The estimation for the RV is conducted using the R package 'highfrequency.' Analysts can also use the same R package through the Python rpy2 package. However, I find it easier and more time-efficient to estimate the RV in R than in Python.*
+
+## Conclusion
+
+In an era marked by the financial industry's technological transformation, understanding the intricacies of asset price movements is of paramount importance. This GitHub repository has embarked on a mathimatical exploration into the world of Bitcoin, a digital asset known for its remarkable price volatility, using the lens of Realized Volatility (RV) as a key analytical tool. Through this project, the objective was to address several crucial facets of Bitcoin's price dynamics and its underlying volatility. The pursuit of these objectives has allowed for the derivation of insights that contribute to a better understanding of the cryptocurrency market and high-frequency data analysis.
+
+Key Contributions:
+
+Microstructure Noise Awareness: The analysis recognized the influence of microstructure noise on price observations. This nuanced understanding has led to more precise volatility estimates and has expanded knowledge of asset return behavior in a noisy environment.
+
+Optimal Data Sampling: The exploration of various data sampling techniques emphasized the importance of optimal equidistant sampling in volatility estimation. This addressed the bias-variance trade-off, ultimately settling on Kernel-based RV estimators as a powerful approach.
+
+Bitcoin as an Asset: Empirical evidence affirmed that Bitcoin exhibits stylized facts typical of traditional financial assets, shedding light on its character as an investment vehicle.
+
+The use of the 'highfrequency' R package and the Python code for data analysis provided the tools needed to delve into Bitcoin's realized volatility efficiently. The results of this analysis are now available within this repository, offering a comprehensive understanding of Bitcoin's price dynamics.
+
+In conclusion, this GitHub repository serves as a valuable resource for those interested in cryptocurrency analysis, high-frequency data, and the principles of volatility estimation. However, further research suggestions could include the incorporation of other sampling techniques, comparing them based on their Mean-Squared-Error (MSE), and analyzing their forecasting capabilities. The repository appreciates the exploration and hopes that the knowledge and methods shared here contribute to the endeavor of understanding the complexities of financial markets and the unique dynamics of cryptocurrencies.
 
 ## Reference
 
