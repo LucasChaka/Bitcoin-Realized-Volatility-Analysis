@@ -239,7 +239,7 @@ Based on the flat-topped kernel-based RV estimator explained above, the Bitcoin 
 
 #### **Fig 5: Bitcoin Realized Volatility**
 
-![Fig 5_ Bitcoin Realized Volatility](https://github.com/LucasChaka/Bitcoin-Realized-Volatility-Analysis/assets/140816619/b8a201dc-49e5-4348-bf88-5b3dba913985)
+![2023_Bitcoin Realized Volatility](https://github.com/LucasChaka/Bitcoin-Realized-Volatility-Analysis/assets/140816619/3d52081d-0420-4bef-b45a-15f3c603a3f7)
 
 Source: [Python Code](https://github.com/LucasChaka/Bitcoin-Realized-Volatility-Analysis/blob/Bitcoin_Realized_Volatility_Ananlysis/Python%20Code.ipynb), [Bitcoin Realized Kernel](Bitcoin%Realized%Kernel.R)
 
